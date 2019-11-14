@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+body {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+}
+
+.header {
+	padding: 60px;
+	padding-top: 0;
+}
+
+.logo {
+	width: 50%;
+	height: 50%;
+}
+
+.content {
+	background-image: url("background.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+}
+
+.content div {
+	padding-top: 50px;
+	padding-left: 100px;
+}
+
+.form-content h1 {
+	color: grey;
+	font-size: 50px;
+}
+
+.Center {
+	width: 200px;
+	height: 200px;
+	position: fixed;
+	background-color: blue;
+	top: 50%;
+	left: 50%;
+	margin-top: -100px;
+	margin-left: -100px;
+}
+
+.button-small {
+	color: #fff !important;
+	word-spacing: 0.25em;
+	font-family: 'Open Sans', sans-serif;
+	text-transform: uppercase;
+	border: none;
+	line-height: 22px;
+	text-align: center;
+	margin-bottom: 18px;
+	text-decoration: none;
+}
+
+.button-small:visited {
+	color: #fff;
+}
+
+.button-small {
+	padding: 6px 12px 5px;
+	font-size: 11px;
+	color: #fff;
+	text-shadow: none;
+}
+
+.button-small:hover {
+	color: rgba(255, 255, 255, 0.75);
+	text-decoration: none;
+	-webkit-box-shadow: inset 0 10px 20px rgba(255, 255, 255, 0.10);
+	-moz-box-shadow: inset 0 10px 20px rgba(255, 255, 255, 0.10);
+	box-shadow: inset 0 10px 20px rgba(255, 255, 255, 0.10);
+}
+
+.button-small:active {
+	-webkit-box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.3), inset 0 10px
+		20px rgba(0, 0, 0, 0.08);
+	-moz-box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.3), inset 0 10px 20px
+		rgba(0, 0, 0, 0.08);
+	box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.3), inset 0 10px 20px
+		rgba(0, 0, 0, 0.08);
+}
+
+.rounded3 {
+	border-radius: 3px;
+}
+
+.grey_dark {
+	background: #474747;
+}
