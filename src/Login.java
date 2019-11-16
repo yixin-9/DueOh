@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-// Test push and pull to github
 /**
  * Servlet implementation class Login
  */
@@ -55,8 +54,14 @@ public class Login extends HttpServlet {
 			if(!invalid) {
 				
 				// connect to database
-				conn = DriverManager.getConnection("jdbc:mysql://");
-				ps = conn.prepareStatement("SELECT * FROM User WHERE username=?");
+				conn = DriverManager.getConnection("jdbc:mysql://google/DueOh"
+						+ "?cloudSqlInstance=dueoh-259203:us-central1:dueoh"
+						+ "&socketFactory=com.google.cloud.sql.mysql.SocketFactory"
+						+ "&useSSL=false"
+						+ "&user=user"
+						+ "&password=user");
+				
+				ps = conn.prepareStatement("SELECT * FROM User WHERE Username = ?");
 				ps.setString(1, username);
 				rs = ps.executeQuery();
 				
@@ -66,25 +71,14 @@ public class Login extends HttpServlet {
 					System.out.println("User does not exist. ");
 					
 				}else {
-					String passwordInput = rs.getString("password");
+					String passwordInput = rs.getString("Password");
 					if(passwordInput.equals(password)) {
 						// login successful
-						ps = conn.prepareStatement("SELECT userID FROM User WHERE username=?");
-						ps.setString(1, username);
-						rs = ps.executeQuery();
-						int userID=-1;
-						while(rs.next()) {
-							userID = rs.getInt("userID");
-						}
 						
 						boolean loggedIn = true;
-						if(userID==-1) {
-							System.out.println("Error: Failed to get userID");
-						}else {
-							session.setAttribute("userID", userID);
-						}
+						
 						session.setAttribute("loggedIn", loggedIn);
-						session.setAttribute("loggedInUser", username);
+						session.setAttribute("username", username);
 						RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/profile.jsp");
 						dispatch.forward(request, response);
 						

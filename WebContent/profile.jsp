@@ -1,5 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="java.util.*" import="DueOh.AssignmentManager" import="DueOh.AssignmentData"%>
+    
+    <%
+    	String username = (String) session.getAttribute("username");
+    	ArrayList<AssignmentData> table = AssignmentManager.populateField(username);
+    	Map<String, ArrayList<AssignmentData> > classList = new HashMap<String, ArrayList<AssignmentData> >();
+    	for (int i = 0; i < table.size(); i++) {
+    		String className = table.get(i).getClassName();
+    		if (classList.get(className) == null) {
+    			ArrayList<AssignmentData> thisClass = new ArrayList<AssignmentData>();
+    			classList.put(className, thisClass);
+    		}
+    		classList.get(className).add(table.get(i));
+    	}
+    %>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -95,33 +109,23 @@
 		</table>
 		
 		<div>
+		<% for (Map.Entry<String, ArrayList<AssignmentData> > entry : classList.entrySet()) { %>
 		<table></table>
 			<table id="class">
 			  <tr>
-			    <th style="width:60%;">Class 201</th><th></th>
+			    <th style="width:60%;"><%= entry.getKey() %></th><th></th>
 			  </tr>
 			  <tr>
 			    <th>Assignment</th><th>Deadline</th>
 			  </tr>
+			  <% for (int i = 0; i < entry.getValue().size(); i++) { %>
 			  <tr>
-			    <td>Detail Design Document</td><td>10th November 2019 Sunday</td>
+			    <td><%= entry.getValue().get(i).getAssignmentName() %></td><td><%= entry.getValue().get(i).getDueDate() %></td>
 			  </tr>
-			  <tr>
-			   <td>Testing Document</td><td>17th November 2019 Sunday</td>
-			  </tr>
-			  <tr>
-			   <td>Final Project</td><td>3rd December 2019 Tuesday</td>
-			  </tr>
-			</table>
-			
-			<br><br>
-			<table id="class">
-			  <tr>
-			    <th style="width:60%;">Class 270</th><th></th>
-			  </tr>
+			  <% } %>
 			</table>
 			<br><br>
-
+		<% } %>
 		</div>
 		
 	</body>

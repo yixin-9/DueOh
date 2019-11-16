@@ -74,8 +74,13 @@ public class Register extends HttpServlet {
 		try {
 			if(!invalid) {
 				// connect to database
-				conn = DriverManager.getConnection("jdbc:mysql://");
-				ps = conn.prepareStatement("SELECT * FROM User WHERE username=?");
+				conn = DriverManager.getConnection("jdbc:mysql://google/DueOh"
+												 + "?cloudSqlInstance=dueoh-259203:us-central1:dueoh"
+												 + "&socketFactory=com.google.cloud.sql.mysql.SocketFactory"
+												 + "&useSSL=false"
+												 + "&user=user"
+												 + "&password=user");
+				ps = conn.prepareStatement("SELECT * FROM User WHERE Username=?");
 				ps.setString(1, username);
 				rs = ps.executeQuery();
 				
@@ -93,28 +98,13 @@ public class Register extends HttpServlet {
 				
 			}else {
 				// connect to database; parameter: URI+URL(server)
-				conn = DriverManager.getConnection("jdbc:mysql://");
-				ps = conn.prepareStatement("INSERT INTO User (username, password) VALUES (?, ?)");
+				ps = conn.prepareStatement("INSERT INTO User (Username, Password) VALUES (?, ?)");
 				ps.setString(1, username);
 				ps.setString(2, password);
 				ps.executeUpdate();
-				
-				// Get userID
-				ps = conn.prepareStatement("SELECT userID FROM User WHERE username=?");
-				ps.setString(1, username);
-				rs = ps.executeQuery();
-				int userID=-1;
-				while(rs.next()) {
-					userID = rs.getInt("userID");
-				}
+
 				// Login after registered
 				boolean loggedIn = true;
-				if(userID==-1) {
-					System.out.println("Error: Failed to get userID");
-					
-				}else {
-					session.setAttribute("userID", userID);
-				}
 				session.setAttribute("loggedIn", loggedIn);
 				session.setAttribute("loggedInUser", username);
 				RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/Login.jsp");
