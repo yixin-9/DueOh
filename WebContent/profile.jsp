@@ -132,9 +132,6 @@
 			<td><input class="button-small" type="submit" value="Add Assignment" style="margin-left:900px"></td>
 		</form>
 		
-		<form method="GET" action="add.java">
-			<input type="submit" value="confirmed">
-		</form>
 		
 	</body>
 </html>
