@@ -10,9 +10,9 @@
     		if (classList.get(className) == null) {
     			ArrayList<AssignmentData> thisClass = new ArrayList<AssignmentData>();
     			classList.put(className, thisClass);
-    		}
+    		}//if
     		classList.get(className).add(table.get(i));
-    	}
+    	}//for
     %>
 <!DOCTYPE html>
 <html>
@@ -26,14 +26,12 @@
 			height: 40%;
 			margin-left: 20%;
 			margin-bottom:5%;
-			
 		}
 		.content {
 			background-image: url("background.png");
 			background-repeat: no-repeat;
 			background-size: cover;
 			height: 100vh;
-			
 		}
 		p{
 			font-family: "Courier New", Courier, monospace;
@@ -95,6 +93,7 @@
 	
 	</head>
 	<body>
+		
 		<table>
 		<tr>
 			<td><img class="logo" src="DueOh_logo.png" style="margin-top:30px;"/></td>
@@ -103,8 +102,10 @@
 		<td><p>Welcome</p></td>
 		</tr>
 		<tr>
-		<td><h1>Tommy Trojan</h1></td>
-		<td><input class="button-small" type="submit" value="Sign Out"></td>
+		<td><h1><%=username %></h1></td>
+		<form method="GET" action="Login.jsp">
+			<td><input class="button-small" type="submit" value="Sign Out" ></td>
+		</form>
 		</tr>
 		</table>
 		
@@ -127,6 +128,13 @@
 			<br><br>
 		<% } %>
 		</div>
+		<form method="GET" action="Login.jsp">
+			<td><input class="button-small" type="submit" value="Add Assignment" style="margin-left:900px"></td>
+		</form>
+		
+		<form method="GET" action="add.java">
+			<input type="submit" value="confirmed">
+		</form>
 		
 	</body>
 </html>

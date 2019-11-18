@@ -27,15 +27,7 @@ public class Login extends HttpServlet {
         super();
         // TODO Auto-generated constructor stub
     }
-
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
+    
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -43,7 +35,7 @@ public class Login extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		boolean invalid = false;
 		HttpSession session = request.getSession(true);
-		String username = request.getParameter("username").trim();
+		String username = request.getParameter("username").trim();    
 		String password = request.getParameter("password").trim();
 		
 		Connection conn = null;
@@ -51,8 +43,7 @@ public class Login extends HttpServlet {
 		ResultSet rs = null;
 		
 		try {
-			if(!invalid) {
-				
+			if(!invalid) {     
 				// connect to database
 				conn = DriverManager.getConnection("jdbc:mysql://google/DueOh"
 						+ "?cloudSqlInstance=dueoh-259203:us-central1:dueoh"
@@ -65,52 +56,52 @@ public class Login extends HttpServlet {
 				ps.setString(1, username);
 				rs = ps.executeQuery();
 				
-				if(rs.next() == false) {
+				if(rs.next() == false) {          //If the user name doesn't exist
 					session.setAttribute("username_error_Login", "This user does not exist. ");
 					invalid = true;
-					System.out.println("User does not exist. ");
-					
-				}else {
+					session.setAttribute("loggedIn", false);
+					session.setAttribute("username", "");
+				}//if
+				else {           //If the username exists, check whether the password is correct
 					String passwordInput = rs.getString("Password");
-					if(passwordInput.equals(password)) {
-						// login successful
-						
-						boolean loggedIn = true;
-						
-						session.setAttribute("loggedIn", loggedIn);
+					if(passwordInput.equals(password)) {  //If the password is correct
+						// login successful	
+						session.setAttribute("loggedIn", true);
 						session.setAttribute("username", username);
 						RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/profile.jsp");
 						dispatch.forward(request, response);
-						
-					}else {
+					}//if
+					else {								//If the password is incorrect
 						session.setAttribute("password_error_Login", "Incorrect password. ");
 						invalid = true;
-					}
-				}
+						session.setAttribute("loggedIn", false);
+						session.setAttribute("username", "");
+					}//else
+				}//else
 				
+				//Go back to the homework page
 				RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/Login.jsp");
 				dispatch.forward(request, response);
-				
-			}
-			
-		}catch(SQLException e){
+			}//if
+		}//try
+		catch(SQLException e){
 			e.printStackTrace();
-		}
+		}//catch
 		finally {
 			try {
 				if (rs!= null) {
 					rs.close();
-				}
+				}//if
 				if (ps!= null) {
 					ps.close();
-				}
+				}//if
 				if (conn!= null) {
 					conn.close();
-				}
-			} catch (SQLException sqle) {
+				}//if
+			}//try
+			catch (SQLException sqle) {
 				System.out.println(sqle.getMessage());
-			}
-		}
-	}
-
-}
+			}//catch
+		}//finally
+	}//doPost
+}//Login

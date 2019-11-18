@@ -29,50 +29,47 @@ public class Register extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	@SuppressWarnings("resource")
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		boolean invalid = false;
 		HttpSession session = request.getSession(true);
 		
-		String username = request.getParameter("username").trim();
-		String password = request.getParameter("password").trim();
-		String cpass = request.getParameter("confirm_password").trim();
 		
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
+		boolean loggedIn = false;
 		
-		if(username == null || username.length() == 0) {
+		String username = request.getParameter("username").trim();
+		String password = request.getParameter("password").trim();
+		String cpass = request.getParameter("confirm_password").trim();
+		
+		if(username == null || username.length() == 0) {         //If the username is empty
 			invalid = true;
 			session.setAttribute("username_error", "Username can't be empty. ");
-		}else {
+		}//if
+		else {													 //If the username is not empty
 			session.setAttribute("username_error", null);
-		}
+		}//else
 		
-		if(!password.equals(cpass)) {
+		if(!password.equals(cpass)) { //If the password is not the same as the confirmed password
 			session.setAttribute("password_error", "The passwords do not match. ");
 			invalid = true;
-		}else if(password==null || password.length()==0 || 
-					cpass==null || cpass.length()==0) {
+		}//else
+		else if(password==null || password.length()==0 || 
+					cpass==null || cpass.length()==0) {   //If the password or confirmed password is empty
 			invalid = true;
 			session.setAttribute("password_error", "Passwords can't be empty. ");
-		}else {
+		}//else if
+		else {                     //If password is the same as the confirmed password
 			session.setAttribute("password_error", null);
-		}
+		}//else
 		
 		try {
-			if(!invalid) {
+			if(!invalid) {         
+				//If the user typed in valid username, password and confirmed password
+				//Check whether the username exists
+				
 				// connect to database
 				conn = DriverManager.getConnection("jdbc:mysql://google/DueOh"
 												 + "?cloudSqlInstance=dueoh-259203:us-central1:dueoh"
@@ -84,19 +81,25 @@ public class Register extends HttpServlet {
 				ps.setString(1, username);
 				rs = ps.executeQuery();
 				
-				if(rs.next()) {
+				if(rs.next()) {   //If the username has been taken
 					session.setAttribute("username_error", "This username is already taken.");
 					invalid = true;
-				}else {
+				}//if
+				else {           //If the username hasn't been taken
 					session.setAttribute("username_error", null);
-				}
-			}
+				}//else
+			}//if
 		
-			if(invalid) {
+			if(invalid) {    //If the username has been taken, refresh the page and ask the user to type in again
+				session.setAttribute("loggedIn", false);
+				session.setAttribute("loggedInUser", "");
 				RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/Register.jsp");
 				dispatch.forward(request, response);
+			}//if
+			else {  
+				//If the username doesn't exist 
+				//Insert the new user information to the database
 				
-			}else {
 				// connect to database; parameter: URI+URL(server)
 				ps = conn.prepareStatement("INSERT INTO User (Username, Password) VALUES (?, ?)");
 				ps.setString(1, username);
@@ -104,30 +107,32 @@ public class Register extends HttpServlet {
 				ps.executeUpdate();
 
 				// Login after registered
-				boolean loggedIn = true;
+				loggedIn = true;
 				session.setAttribute("loggedIn", loggedIn);
 				session.setAttribute("loggedInUser", username);
-				RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/Login.jsp");
-				dispatch.forward(request, response);
-			}
-		}catch(SQLException e){
-			e.printStackTrace();
-			
-		}finally {
+				RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/Login.jsp"); //Go to the login page if the user register successfully
+				dispatch.forward(request, response);  //Forward the request
+			}//else
+		}//try
+		catch(SQLException e){
+			e.printStackTrace();	
+		}//catch
+		finally {
 			try {
 				if (rs!= null) {
 					rs.close();
-				}
+				}//if
 				if (ps!= null) {
 					ps.close();
-				}
+				}//if
 				if (conn!= null) {
 					conn.close();
-				}
-			} catch (SQLException sqle) {
+				}//if
+			}//try
+			catch (SQLException sqle) {
 				System.out.println(sqle.getMessage());
-			}
-		}
-	}
-
-}
+			}//catch
+		}//finally
+	}//doPost
+	
+}//Register

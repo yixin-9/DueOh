@@ -30,8 +30,8 @@ public class SignOut extends HttpServlet {
 		// TODO Auto-generated method stub
 		
 		HttpSession session = request.getSession(true);
-		session.setAttribute("loggedIn", null);
-		session.setAttribute("loggedInUser", null);
+		session.setAttribute("loggedIn", false);
+		session.setAttribute("loggedInUser", "");
 		RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/Login.jsp");
 		try {
 			dispatch.forward(request, response);
