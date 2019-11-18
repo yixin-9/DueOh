@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.*" import="DueOh.AssignmentManager" import="DueOh.AssignmentData"%>
+    pageEncoding="UTF-8" import="java.util.*" import="DueOh.AssignmentManager" import="DueOh.*" %>
     
     <%
     	String username = (String) session.getAttribute("username");
@@ -14,6 +14,7 @@
     		classList.get(className).add(table.get(i));
     	}//for
     %>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -140,14 +141,14 @@
 			  <tr>
 			    <td><%= entry.getValue().get(i).getAssignmentName() %></td> 
 			    <td><%= entry.getValue().get(i).getDueDate() %></td>
-<%-- 			    <td><%= entry.getValue().get(i).getSubmitStatus() %></td>
- --%>			  </tr>
+	   		    <td><%= entry.getValue().get(i).getSubmitStatus() %></td>
+	    		 </tr>
 			  <% } %>
 			</table>
 			<br><br>
 		<% } %>
 		</div>
-		<form method="GET" action="Login.jsp">
+		<form method="POST" action="AddAssignment.jsp">
 			<td><input class="button-small" type="submit" value="Add Assignment" style="margin-left:900px; border-radius: 8px; font-size: 12px; border-color: black;"></td>
 		</form>
 		</div>

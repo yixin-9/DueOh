@@ -29,29 +29,31 @@ public class AssignmentManager {
 				Timestamp DueDateVal = rs.getTimestamp("DueDate");
 				String ClassNameVal = rs.getString("ClassName");
 				String UsernameVal = rs.getString("Username");
+				boolean submitStatus = rs.getBoolean("submitStatus");
 				
-				AssignmentData table = new AssignmentData(AssignmentNameVal, DueDateVal, ClassNameVal, UsernameVal);
+				AssignmentData table = new AssignmentData(AssignmentNameVal, DueDateVal, ClassNameVal, UsernameVal, submitStatus);
 				data.add(table);
-				
-			}
-			
-		}catch (SQLException sqle) {
+			}//while	
+		}//try
+		catch (SQLException sqle) {
 			System.out.println(sqle.getMessage());
-		} finally {
+		}//catch
+		finally {
 			try {
 				if(rs != null) {
 					rs.close();
-				}
+				}//if
 				if(ps != null) {
 					ps.close();
-				}
+				}//if
 				if(conn != null) {
 					conn.close();
-				}
-			} catch (SQLException sqle) {
+				}//if
+			}//try
+			catch (SQLException sqle) {
 				System.out.println(sqle.getMessage());
-			}
-		}
+			}//catch
+		}//finally
 		return data;
 	}
 }
