@@ -21,6 +21,12 @@
 		<title>DueOh! Profile</title>
 		
 	<style>
+		body {
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			font-family:Helvetica;
+		}
 		.logo {
 			width: 40%;
 			height: 40%;
@@ -94,21 +100,32 @@
 	</head>
 	<body>
 		
+		
+	<div class="header">
 		<table>
+			<tr>
+				<td><a href="${pageContext.request.contextPath}/Login.jsp"><img class="logo" src="DueOh_logo2.jpg" style="margin-top: 30px; width: 150px; height: 150px;" /></td>
+			<!-- 	<td><img src="7fypsQy.gif"/ style="width: 150px; height: 150px; margin-left: 900px; margin-top: 35px; border-radius: 100px;"></td> -->
+			</tr>
+		</table>
+	</div>
+
+	<div class="content">
+		<div class="form-content">
+		<table>
+			<tr>
+				<td><p style="margin-left: 150px;">Welcome,<%=username %></p></td>
+				<td>
+					<form method="GET" action="Login.jsp">
+						<td><input class="button-small" type="submit" value="Sign Out" style="position: relative; top: 50%; left: 100%; margin-top: -5px; display: inline-block; margin-left: 2px; border-radius: 8px; font-size: 12px; border-color: black; height:38px;"></td>
+					</form>
+				</td>
+			</tr>
 		<tr>
-			<td><img class="logo" src="DueOh_logo.png" style="margin-top:30px;"/></td>
-		</tr>
-		<tr>
-		<td><p>Welcome</p></td>
-		</tr>
-		<tr>
-		<td><h1><%=username %></h1></td>
-		<form method="GET" action="Login.jsp">
-			<td><input class="button-small" type="submit" value="Sign Out" ></td>
-		</form>
+		
+
 		</tr>
 		</table>
-		
 		<div>
 		<% for (Map.Entry<String, ArrayList<AssignmentData> > entry : classList.entrySet()) { %>
 		<table></table>
@@ -117,21 +134,24 @@
 			    <th style="width:60%;"><%= entry.getKey() %></th><th></th>
 			  </tr>
 			  <tr>
-			    <th>Assignment</th><th>Deadline</th>
+			    <th>Assignment</th><th>Deadline</th><th>Submit Status</th>
 			  </tr>
 			  <% for (int i = 0; i < entry.getValue().size(); i++) { %>
 			  <tr>
-			    <td><%= entry.getValue().get(i).getAssignmentName() %></td><td><%= entry.getValue().get(i).getDueDate() %></td>
-			  </tr>
+			    <td><%= entry.getValue().get(i).getAssignmentName() %></td> 
+			    <td><%= entry.getValue().get(i).getDueDate() %></td>
+<%-- 			    <td><%= entry.getValue().get(i).getSubmitStatus() %></td>
+ --%>			  </tr>
 			  <% } %>
 			</table>
 			<br><br>
 		<% } %>
 		</div>
 		<form method="GET" action="Login.jsp">
-			<td><input class="button-small" type="submit" value="Add Assignment" style="margin-left:900px"></td>
+			<td><input class="button-small" type="submit" value="Add Assignment" style="margin-left:900px; border-radius: 8px; font-size: 12px; border-color: black;"></td>
 		</form>
-		
+		</div>
+	</div>
 		
 	</body>
 </html>

@@ -32,7 +32,8 @@ margin-left:30.5%;
 	<div class="header">
 		<table>
 			<tr>
-				<td><a href="${pageContext.request.contextPath}/Login.jsp"><img class="logo" src="DueOh_logo.png" style="margin-top: 30px;" /></td>
+				<td><a href="${pageContext.request.contextPath}/Login.jsp"><img class="logo" src="DueOh_logo2.jpg" style="margin-top: 30px; width: 150px; height: 150px;" /></td>
+	<!-- 			<td><img src="7fypsQy.gif"/ style="width: 150px; height: 150px; margin-left: 900px; margin-top: 35px; border-radius: 100px;"></td> -->
 			</tr>
 		</table>
 	</div>
@@ -48,26 +49,28 @@ margin-left:30.5%;
 						<br>
 					</tr>
 					<tr>
+						<p style="margin-top: -30px; margin-left: 310px;margin-bottom: -15px; color: white;"><b>Hello! Let's do our homework &#9996; </b></p>
+					</tr>
+					<tr>
 						<td><input type="text" name="username" placeholder="username"
-							style="position: relative; font-size: 20px; top: 50%; left: 100%; margin-top: 20px; width: 400px; height: 30px;">
+							style="position: relative; font-size: 20px; top: 50%; left: 100%; margin-top: 20px; width: 400px; height: 30px; margin-left: -50px; border-radius: 5px; border: 2px solid white;">
 						</td>
 					</tr>
 					<tr>
 						<td><input type="password" name="password" placeholder="password"
-							style="position: relative; font-size: 20px; top: 50%; left: 100%; margin-top: 20px; width: 400px; height: 30px;">
+							style="position: relative; font-size: 20px; top: 50%; left: 100%; margin-top: 20px; width: 400px; height: 30px; margin-left: -50px; border-radius: 5px; border: 2px solid white;">
 						</td>
 					</tr>
 
 					<tr>
 						<td><button class="button-small grey_dark rounded3" type="submit"
-								style="position: relative; top: 50%; left: 100%; margin-top: 20px; display: inline-block">
+								style="position: relative; top: 50%; left: 100%; margin-top: 20px; display: inline-block; margin-left: 110px; border-radius: 8px; font-size: 16px;">
 								Login</button>
 						</td>
+					</tr>
+					<tr>
 						<td>
-						
-						<button class="button-small grey_dark rounded3" 
-							style="position: relative; top: 50%; left: 100%; margin-top: 20px; margin-left: 42px; display: inline-block">
-							<a style="color: white; text-decoration: none;"href="${pageContext.request.contextPath}/Register.jsp">Create new account</a></button>
+							<a style="position: relative; top: 50%; left: 100%; margin-top: 10px; margin-left: 200px; display: inline-block; font-color: black"href="${pageContext.request.contextPath}/Register.jsp"><b>Create new account</b></a><!-- </button> -->
 						</td>
 					</tr>
 				</table>
