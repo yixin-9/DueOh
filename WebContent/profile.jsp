@@ -128,6 +128,7 @@
 		</tr>
 		</table>
 		<div>
+		<a href="Calendar.jsp">Click here to see calendar!</a>
 		<% for (Map.Entry<String, ArrayList<AssignmentData> > entry : classList.entrySet()) { %>
 		<table></table>
 			<table id="class">

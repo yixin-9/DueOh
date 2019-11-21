@@ -1,6 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*" import="DueOh.AssignmentManager" import="DueOh.AssignmentData"
-    %><html lang='en'>
+    %>
+<%
+		int mapSize = 0;
+    	String username = (String) session.getAttribute("username");
+    	ArrayList<AssignmentData> table = AssignmentManager.populateField(username);
+    	Map<String, ArrayList<AssignmentData> > classList = new HashMap<String, ArrayList<AssignmentData> >();
+    	for (int i = 0; i < table.size(); i++) {
+    		String className = table.get(i).getClassName();
+    		if (classList.get(className) == null) {
+    			ArrayList<AssignmentData> thisClass = new ArrayList<AssignmentData>();
+    			classList.put(className, thisClass);
+    		}//if
+    		classList.get(className).add(table.get(i));
+    		mapSize++;
+    	}//for
+    %>    
+    
+    
+    
+    <html lang='en'>
   <head>
     <meta charset='utf-8' />
 
@@ -25,15 +44,18 @@
       defaultDate: '2019-08-12',
       editable: true,
       events: [
-        {
-          title: 'rrule event',
-          rrule: {
-            dtstart: '2019-08-09T13:00:00',
-            // until: '2019-08-01',
-            freq: 'weekly'
-          },
-          duration: '02:00'
-        }
+    	  <% for (Map.Entry<String, ArrayList<AssignmentData> > entry : classList.entrySet()) { %>
+    	  mapSize--;
+    	  	<% for (int i = 0; i < entry.getValue().size(); i++) { %>
+        		{
+          			title: <%= entry.getValue().get(i).getAssignmentName() %>,
+          			start: <%= entry.getValue().get(i).getDueDate() %>
+        		} 
+        		<% if (mapSize > 0 && i >= entry.getValue().size()-1) { %>
+        			, 
+        		<% } %>
+        	<% } %>
+        <% } %>
       ],
       eventClick: function(arg) {
         if (confirm('delete event?')) {
