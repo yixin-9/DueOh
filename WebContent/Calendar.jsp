@@ -59,11 +59,19 @@
     font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
     font-size: 14px;
   }
+  
+  thead.fc-head {
+    background-color: #ED7F61;
+   }
+  tbody.fc-body {    
+    background-color: #fcf5f2;
+   }
 
   #calendar {
     max-width: 900px;
     margin: 0 auto;
   }
+  
 
 </style>
 </head>
