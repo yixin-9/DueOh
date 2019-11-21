@@ -122,7 +122,6 @@ h1 {
 				<td><a href="${pageContext.request.contextPath}/Login.jsp"><img
 						class="logo" src="DueOh_logo2.jpg"
 						style="margin-top: 30px; width: 150px; height: 150px;" /></td>
-				<!-- 	<td><img src="7fypsQy.gif"/ style="width: 150px; height: 150px; margin-left: 900px; margin-top: 35px; border-radius: 100px;"></td> -->
 			</tr>
 		</table>
 	</div>
@@ -140,6 +139,7 @@ h1 {
 								style="position: relative; top: 50%; left: 100%; margin-top: -5px; display: inline-block; margin-left: 2px; border-radius: 8px; font-size: 12px; border-color: black; height: 38px;"></td>
 						</form>
 					</td>
+				</tr>
 		</table>
 		<div>
 		 
