@@ -128,7 +128,7 @@
 		</tr>
 		</table>
 		<div>
-		
+		 
 		<a href="${pageContext.request.contextPath}/Calendar.jsp">Click here to see calendar!</a>
 		<% for (Map.Entry<String, ArrayList<AssignmentData> > entry : classList.entrySet()) { %>
 		<table></table>
