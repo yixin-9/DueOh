@@ -22,12 +22,17 @@
     <html lang='en'>
   <head>
     <meta charset='utf-8' />
-
-    <link href='fullcalendar/packages/core/main.css' rel='stylesheet' />
-    <link href='fullcalendar/packages/daygrid/main.css' rel='stylesheet' />
-
-    <script src='fullcalendar/packages/core/main.js'></script>
-    <script src='fullcalendar/packages/daygrid/main.js'></script>
+	
+	<link href='fullcalendar/packages/core/main.css' rel='stylesheet' />
+	<link href='fullcalendar/packages/daygrid/main.css' rel='stylesheet' />
+	<link href='fullcalendar/packages/timegrid/main.css' rel='stylesheet' />
+	<link href='fullcalendar/packages/list/main.css' rel='stylesheet' />
+	
+	<script src='fullcalendar/packages/core/main.js'></script>
+	<script src='fullcalendar/packages/interaction/main.js'></script>
+	<script src='fullcalendar/packages/daygrid/main.js'></script>
+	<script src='fullcalendar/packages/timegrid/main.js'></script>
+	<script src='fullcalendar/packages/list/main.js'></script>
 
     <script>
 
@@ -76,11 +81,19 @@
     font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
     font-size: 14px;
   }
+  
+  thead.fc-head {
+    background-color: #ED7F61;
+   }
+  tbody.fc-body {    
+    background-color: #fcf5f2;
+   }
 
   #calendar {
     max-width: 900px;
     margin: 0 auto;
   }
+  
 
 </style>
 </head>
