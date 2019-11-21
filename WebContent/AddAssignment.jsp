@@ -4,7 +4,20 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>Add assignment</title>
+<%
+
+	String assignExist = (String)request.getAttribute("assignExist");
+	System.out.println(assignExist);
+	System.out.println("hello");
+	if(assignExist == null){
+		assignExist = "";
+	}
+
+%>
+
+
+
 <link rel="stylesheet" href="login.css">
 </head>
 <body>
@@ -18,26 +31,29 @@
 	</div>
 	<div class="content">
 		<div class="form-content">
-			<form method="GET" action="Add">
+			<form method="POST" action="AddAssignment">
 				<table>
 					<tr>
 						<p style="margin-left: 400px; margin-top: -20px; margin-bottom: -10px;"><b>Add Your Assignment Here &#128521</b></p>
 					</tr>
 					<tr>
-						<td><input type="text" name="Class Name" placeholder="className"
+						<td><input type="text" name="className" placeholder="Class Name"
 									style="position: relative; font-size: 20px; left: 100%; margin-top: 20px; width: 400px; height: 30px; margin-left: -50px; border-radius: 5px; border: 2px solid white;"></td>
 					</tr>
 					<tr>
-						<td><input type="password" name="assignment"
-									placeholder="assignment"
+						<td><input type="text" name="assignmentName"
+									placeholder="Assignment"
 									style="position: relative; font-size: 20px; top: 50%; left: 100%; margin-top: 20px; width: 400px; height: 30px; margin-left: -50px; border-radius: 5px; border: 2px solid white;"></td>
 					</tr>
 					<tr>
-						<td><input type="password" name="deadline"
-									placeholder="deadline"
-									style="position: relative; font-size: 20px; top: 50%; left: 100%; margin-top: 20px; width: 400px; height: 30px; margin-left: -50px; border-radius: 5px; border: 2px solid white;"></td>
+					<%=assignExist%>
+					</tr>
+					<tr>
+						<td><input type="datetime-local" name="dueDate"
+									style="position: relative; font-size: 20px; top: 50%; left: 100%; margin-top: 20px; width: 400px; height: 30px; margin-left: -50px; border-radius: 5px; border: 2px solid white;" required></td>
 					</tr>
 				</table>
+				<button type="submit">Add Assignment</button>
 			</form>
 		</div>
 	</div>
