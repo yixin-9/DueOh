@@ -3,12 +3,17 @@
     %><html lang='en'>
   <head>
     <meta charset='utf-8' />
-
-    <link href='fullcalendar/packages/core/main.css' rel='stylesheet' />
-    <link href='fullcalendar/packages/daygrid/main.css' rel='stylesheet' />
-
-    <script src='fullcalendar/packages/core/main.js'></script>
-    <script src='fullcalendar/packages/daygrid/main.js'></script>
+	
+	<link href='fullcalendar/packages/core/main.css' rel='stylesheet' />
+	<link href='fullcalendar/packages/daygrid/main.css' rel='stylesheet' />
+	<link href='fullcalendar/packages/timegrid/main.css' rel='stylesheet' />
+	<link href='fullcalendar/packages/list/main.css' rel='stylesheet' />
+	
+	<script src='fullcalendar/packages/core/main.js'></script>
+	<script src='fullcalendar/packages/interaction/main.js'></script>
+	<script src='fullcalendar/packages/daygrid/main.js'></script>
+	<script src='fullcalendar/packages/timegrid/main.js'></script>
+	<script src='fullcalendar/packages/list/main.js'></script>
 
     <script>
 
