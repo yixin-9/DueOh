@@ -35,6 +35,13 @@ public class AddAssignment extends HttpServlet {
 		String assignLink = request.getParameter("assignLink");
 		String assignExist = null;
 		String nextPage = "/profile.jsp";
+		
+		// to see what is being saved into database
+		System.out.println(username);
+		System.out.println(className);
+		System.out.println(assignmentName);
+		System.out.println(dueDate);
+		System.out.println(assignLink);
 
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -47,8 +54,7 @@ public class AddAssignment extends HttpServlet {
 				+ "&password=user";
 
 		// SQL Queries
-		String newEntryString = "INSERT INTO Assignment(AssignmentName, DueDate, ClassName, AssignLink, "
-				+ "Username, SubmitStatus) VALUES (?, ?, ?, ?, ?, 0);";
+		String newEntryString = "INSERT INTO Assignment(AssignmentName, DueDate, ClassName, AssignLink, Username, SubmitStatus) VALUES (?, ?, ?, ?, ?, 0);";
 		String searchString = "SELECT * FROM Assignment WHERE Username = ? AND ClassName = ? "
 				+ " AND AssignmentName = ? AND AssignLink = ?";
 		
@@ -67,7 +73,7 @@ public class AddAssignment extends HttpServlet {
 				nextPage = "/AddAssignment.jsp";
 				
 			}
-			if(assignExist != null) {
+			if(assignExist == null) {
 				ps = conn.prepareStatement(newEntryString);
 				ps.setString(1, assignmentName);
 				ps.setString(2, dueDate);

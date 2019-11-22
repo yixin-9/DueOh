@@ -119,7 +119,7 @@ h1 {
 	<div class="header">
 		<table>
 			<tr>
-				<td><a href="${pageContext.request.contextPath}/Login.jsp"><img
+				<td><a href="${pageContext.request.contextPath}/profile.jsp"><img
 						class="logo" src="DueOh_logo2.jpg"
 						style="margin-top: 30px; width: 150px; height: 150px;" /></td>
 			</tr>
@@ -149,13 +149,14 @@ h1 {
 				<table></table>
 				<table id="class">
 					<tr>
-						<th style="width: 60%;"><%=entry.getKey()%></th>
+						<th style="width: 40%;"><%=entry.getKey()%></th>
 						<th></th>
 					</tr>
 					<tr>
 						<th>Assignment</th>
 						<th>Deadline</th>
 						<th>Submit Status</th>
+						<th> Submission Link </th>
 						<th>Done!</th>
 					</tr>
 					<%
@@ -165,12 +166,14 @@ h1 {
 						<td><%=entry.getValue().get(i).getAssignmentName()%></td>
 						<td><%=entry.getValue().get(i).getDueDate()%></td>
 						<td><%=entry.getValue().get(i).getSubmitStatus()%></td>
-						<td><%=entry.getValue().get(i).getAssignLink()%></td>
+						<td><a href="<%entry.getValue().get(i).getAssignLink();%>" target="_blank" rel="noopener">
+						 Click me to submit!</a></td>
 						<td>
 						<form method="POST" action="">
 							<button type="submit">Done!</button>
 						</form>
 						</td>
+						
 					</tr>
 					<%
 						}
@@ -184,8 +187,9 @@ h1 {
 				%>
 			</div>
 			<form method="POST" action="AddAssignment.jsp">
-				<input class="button-small" type="submit"
-					value="Add Assignment"
+				<input class="button-small" type="submit" value="Add Assignment"
+					style="margin-left: 900px; border-radius: 8px; font-size: 12px; border-color: black;">
+				<input class="button-small" type="button" value="Remove Assignment" onclick=""
 					style="margin-left: 900px; border-radius: 8px; font-size: 12px; border-color: black;">
 			</form>
 		</div>
