@@ -1,4 +1,5 @@
 package DueOh;
+import DueOh.HashPass;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -66,6 +67,12 @@ public class Register extends HttpServlet {
 			session.setAttribute("password_error", null);
 		}//else
 		
+		// if got here, means password already checked
+		if(!password.isEmpty()) {
+			password = HashPass.calculateHash(password);
+		}
+		
+		
 		try {
 			if(!invalid) {         
 				//If the user typed in valid username, password and confirmed password
@@ -73,11 +80,11 @@ public class Register extends HttpServlet {
 				
 				// connect to database
 				conn = DriverManager.getConnection("jdbc:mysql://google/DueOh"
-												 + "?cloudSqlInstance=dueoh-259203:us-central1:dueoh"
-												 + "&socketFactory=com.google.cloud.sql.mysql.SocketFactory"
-												 + "&useSSL=false"
-												 + "&user=user"
-												 + "&password=user");
+						+ "?cloudSqlInstance=cs201dueoh:us-central1:dueoh"
+						+ "&socketFactory=com.google.cloud.sql.mysql.SocketFactory"
+						+ "&useSSL=false"
+						+ "&user=user"
+						+ "&password=user");
 				ps = conn.prepareStatement("SELECT * FROM User WHERE Username=?");
 				ps.setString(1, username);
 				rs = ps.executeQuery();
@@ -102,7 +109,7 @@ public class Register extends HttpServlet {
 				//Insert the new user information to the database
 				
 				// connect to database; parameter: URI+URL(server)
-				ps = conn.prepareStatement("INSERT INTO User (Username, Password) VALUES (?, ?)");
+				ps = conn.prepareStatement("INSERT INTO User (Username, HashedPass) VALUES (?, ?)");
 				ps.setString(1, username);
 				ps.setString(2, password);
 				ps.executeUpdate();

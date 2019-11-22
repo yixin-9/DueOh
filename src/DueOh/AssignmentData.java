@@ -5,14 +5,17 @@ public class AssignmentData {
 	private String assignmentName;
 	private Timestamp dueDate;
 	private String className;
+	private String assignLink;
 	private String username;
 	private boolean submitStatus;
 	
-	public AssignmentData(String assignmentNameVal, Timestamp dueDateVal, String classNameVal, String usernameVal, boolean submitStatus) {
+	public AssignmentData(String assignmentNameVal, Timestamp dueDateVal, String classNameVal, 
+			String assignLinkVal, String usernameVal, boolean submitStatus) {
 		// TODO Auto-generated constructor stub
 		this.assignmentName = assignmentNameVal;
 		this.dueDate = dueDateVal;
 		this.className = classNameVal;
+		this.setAssignLink(assignLinkVal);
 		this.username = usernameVal;
 		this.submitStatus = submitStatus;
 	}//Constructor
@@ -51,15 +54,23 @@ public class AssignmentData {
 	
 	public String getSubmitStatus() {
 		if (this.submitStatus) {
-			return "Submitted";
+			return "Submitted!";
 		}//if
 		else  {
-			return "Not Submitted!!!";
+			return "Not submitted yet";
 		}//else
 	}//getSubmitStatus
 	
 	public void setSubmitStatus(boolean submitStatus) {
 		this.submitStatus = submitStatus;
 	}//setSubmitStatus
+
+	public String getAssignLink() {
+		return assignLink;
+	}
+
+	public void setAssignLink(String assignLink) {
+		this.assignLink = assignLink;
+	}
 	
 }//AssignmentData

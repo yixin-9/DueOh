@@ -8,8 +8,6 @@
 <%
 
 	String assignExist = (String)request.getAttribute("assignExist");
-	System.out.println(assignExist);
-	System.out.println("hello");
 	if(assignExist == null){
 		assignExist = "";
 	}
@@ -51,6 +49,10 @@
 					<tr>
 						<td><input type="datetime-local" name="dueDate"
 									style="position: relative; font-size: 20px; top: 50%; left: 100%; margin-top: 20px; width: 400px; height: 30px; margin-left: -50px; border-radius: 5px; border: 2px solid white;" required></td>
+					</tr>
+					<tr>
+						<td><input type="text" name="assignLink" placeholder="Assignment Link"
+									style="position: relative; font-size: 20px; left: 100%; margin-top: 20px; width: 400px; height: 30px; margin-left: -50px; border-radius: 5px; border: 2px solid white;"></td>
 					</tr>
 				</table>
 				<button type="submit">Add Assignment</button>

@@ -140,28 +140,9 @@ h1 {
 						</form>
 					</td>
 				</tr>
-		</table>
-		<div>
-		 
-		<a href="${pageContext.request.contextPath}/Calendar.jsp">Click here to see calendar!</a>
-		<% for (Map.Entry<String, ArrayList<AssignmentData> > entry : classList.entrySet()) { %>
-		<table></table>
-			<table id="class">
-			  <tr>
-			    <th style="width:60%;"><%= entry.getKey() %></th><th></th>
-			  </tr>
-			  <tr>
-			    <th>Assignment</th><th>Deadline</th><th>Submit Status</th>
-			  </tr>
-			  <% for (int i = 0; i < entry.getValue().size(); i++) { %>
-			  <tr>
-			    <td><%= entry.getValue().get(i).getAssignmentName() %></td> 
-			    <td><%= entry.getValue().get(i).getDueDate() %></td>
-	   		    <td><%= entry.getValue().get(i).getSubmitStatus() %></td>
-	    		 </tr>
-			  <% } %>
-			</table>
+		</table>		 
 			<div>
+			<a href="${pageContext.request.contextPath}/Calendar.jsp">Click here to see calendar!</a>
 				<%
 					for (Map.Entry<String, ArrayList<AssignmentData>> entry : classList.entrySet()) {
 				%>
@@ -184,6 +165,7 @@ h1 {
 						<td><%=entry.getValue().get(i).getAssignmentName()%></td>
 						<td><%=entry.getValue().get(i).getDueDate()%></td>
 						<td><%=entry.getValue().get(i).getSubmitStatus()%></td>
+						<td><%=entry.getValue().get(i).getAssignLink()%></td>
 						<td>
 						<form method="POST" action="">
 							<button type="submit">Done!</button>

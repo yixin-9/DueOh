@@ -10,7 +10,7 @@ public class AssignmentManager {
 		ArrayList<AssignmentData> data = new ArrayList<AssignmentData>();
 		
 		String sql = "jdbc:mysql://google/DueOh"
-				+ "?cloudSqlInstance=dueoh-259203:us-central1:dueoh"
+				+ "?cloudSqlInstance=cs201dueoh:us-central1:dueoh"
 				+ "&socketFactory=com.google.cloud.sql.mysql.SocketFactory"
 				+ "&useSSL=false"
 				+ "&user=user"
@@ -28,10 +28,12 @@ public class AssignmentManager {
 				String AssignmentNameVal = rs.getString("AssignmentName");
 				Timestamp DueDateVal = rs.getTimestamp("DueDate");
 				String ClassNameVal = rs.getString("ClassName");
+				String AssignLinkVal = rs.getString("AssignLink");
 				String UsernameVal = rs.getString("Username");
 				boolean submitStatus = rs.getBoolean("submitStatus");
 				
-				AssignmentData table = new AssignmentData(AssignmentNameVal, DueDateVal, ClassNameVal, UsernameVal, submitStatus);
+				AssignmentData table = new AssignmentData(AssignmentNameVal, DueDateVal, ClassNameVal, AssignLinkVal,
+						UsernameVal, submitStatus);
 				data.add(table);
 			}//while	
 		}//try

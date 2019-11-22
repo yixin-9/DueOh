@@ -1,4 +1,5 @@
 package DueOh;
+import DueOh.HashPass;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -39,6 +40,9 @@ public class Login extends HttpServlet {
 		String username = request.getParameter("username").trim();    
 		String password = request.getParameter("password").trim();
 		
+		// to hash the password 
+		password = HashPass.calculateHash(password);
+		
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
@@ -47,7 +51,7 @@ public class Login extends HttpServlet {
 			if(!invalid) {     
 				// connect to database
 				conn = DriverManager.getConnection("jdbc:mysql://google/DueOh"
-						+ "?cloudSqlInstance=dueoh-259203:us-central1:dueoh"
+						+ "?cloudSqlInstance=cs201dueoh:us-central1:dueoh"
 						+ "&socketFactory=com.google.cloud.sql.mysql.SocketFactory"
 						+ "&useSSL=false"
 						+ "&user=user"
@@ -64,7 +68,7 @@ public class Login extends HttpServlet {
 					session.setAttribute("username", "");
 				}//if
 				else {           //If the username exists, check whether the password is correct
-					String passwordInput = rs.getString("Password");
+					String passwordInput = rs.getString("HashedPass");
 					if(passwordInput.equals(password)) {  //If the password is correct
 						// login successful	
 						session.setAttribute("loggedIn", true);
