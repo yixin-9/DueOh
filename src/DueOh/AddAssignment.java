@@ -42,6 +42,11 @@ public class AddAssignment extends HttpServlet {
 		System.out.println(assignmentName);
 		System.out.println(dueDate);
 		System.out.println(assignLink);
+		
+		// Add http if it does not exists
+		if(!((assignLink.contains("http://")) || (assignLink.contains("https://")))) {
+			assignLink = "http://" + assignLink;
+		}
 
 		Connection conn = null;
 		PreparedStatement ps = null;
@@ -56,7 +61,7 @@ public class AddAssignment extends HttpServlet {
 		// SQL Queries
 		String newEntryString = "INSERT INTO Assignment(AssignmentName, DueDate, ClassName, AssignLink, Username, SubmitStatus) VALUES (?, ?, ?, ?, ?, 0);";
 		String searchString = "SELECT * FROM Assignment WHERE Username = ? AND ClassName = ? "
-				+ " AND AssignmentName = ? AND AssignLink = ?";
+				+ " AND AssignmentName = ?";
 		
 		try {
 			conn = DriverManager.getConnection(sql);
@@ -64,7 +69,6 @@ public class AddAssignment extends HttpServlet {
 			ps.setString(1, username);
 			ps.setString(2,  className);
 			ps.setString(3, assignmentName);
-			ps.setString(4, assignLink);
 			rs = ps.executeQuery();
 			if(rs.next()) {
 				// that means assignment already exist

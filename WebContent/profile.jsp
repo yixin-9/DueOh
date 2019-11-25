@@ -14,6 +14,7 @@
 		} //if
 		classList.get(className).add(table.get(i));
 	} //for
+	boolean clicked = false;
 %>
 
 <!DOCTYPE html>
@@ -113,6 +114,29 @@ h1 {
 </style>
 
 </head>
+<script>
+function sendAssign(className, assignName) {
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("GET", "RemoveAssignment?className=" + className + "&assignName=" + assignName, false);
+	xhttp.send();
+	window.location.assign("profile.jsp");
+}
+function doneCheck(className, assignName, assignLink, submitStatus) {
+	var xhttp = new XMLHttpRequest();
+	xhttp.open("GET", "DoneAssign?className=" + className + "&assignName=" + assignName 
+			+ "&assignLink=" + assignLink + "&submitStatus=" + submitStatus, false);
+	xhttp.send();
+	window.location.assign("profile.jsp");
+}
+function myFunction() {
+	  var x = document.getElementById("myDIV");
+	  if (x.style.display === "none") {
+	    x.style.display = "block";
+	  } else {
+	    x.style.display = "none";
+	  }
+	}
+</script>
 <body>
 
 
@@ -158,23 +182,37 @@ h1 {
 						<th>Submit Status</th>
 						<th> Submission Link </th>
 						<th>Done!</th>
+						<th id="">Remove</th>
 					</tr>
 					<%
 						for (int i = 0; i < entry.getValue().size(); i++) {
 					%>
 					<tr>
+						
 						<td><%=entry.getValue().get(i).getAssignmentName()%></td>
 						<td><%=entry.getValue().get(i).getDueDate()%></td>
 						<td><%=entry.getValue().get(i).getSubmitStatus()%></td>
-						<td><a href="<%entry.getValue().get(i).getAssignLink();%>" target="_blank" rel="noopener">
+						<td><a href=<%=entry.getValue().get(i).getAssignLink()%> target="_blank" rel="noopener">
 						 Click me to submit!</a></td>
 						<td>
-						<form method="POST" action="">
-							<button type="submit">Done!</button>
-						</form>
+							<%
+								session.setAttribute("username", username);
+							%>
+							<button type="submit" onclick="doneCheck('<%=entry.getKey()%>', 
+							'<%=entry.getValue().get(i).getAssignmentName()%>',
+							'<%=entry.getValue().get(i).getAssignLink()%>',
+							'<%=entry.getValue().get(i).getSubmitStatus()%>')">Done!</button> 
+						
 						</td>
 						
+						<td>
+							<div id ="myDIV">
+							<button type="submit" onclick="sendAssign('<%=entry.getKey()%>',
+							'<%=entry.getValue().get(i).getAssignmentName()%>')">Remove</button>
+							</div>
+						</td>
 					</tr>
+					
 					<%
 						}
 					%>
@@ -189,9 +227,9 @@ h1 {
 			<form method="POST" action="AddAssignment.jsp">
 				<input class="button-small" type="submit" value="Add Assignment"
 					style="margin-left: 900px; border-radius: 8px; font-size: 12px; border-color: black;">
-				<input class="button-small" type="button" value="Remove Assignment" onclick=""
-					style="margin-left: 900px; border-radius: 8px; font-size: 12px; border-color: black;">
 			</form>
+			<button class="button-small" onclick="myFunction()"
+			style="margin-left: 900px; border-radius: 8px; font-size: 12px; border-color: black;">Remove Assignment</button>
 		</div>
 	</div>
 
