@@ -36,41 +36,41 @@
 
     <script>
 
-  document.addEventListener('DOMContentLoaded', function() {
-    var calendarEl = document.getElementById('calendar');
+	document.addEventListener('DOMContentLoaded', function() {
+		var calendarEl = document.getElementById('calendar');
 
-    var calendar = new FullCalendar.Calendar(calendarEl, {
-      plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'list', 'rrule' ],
-      header: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
-      },
-      defaultDate: '2019-08-12',
-      editable: true,
-      events: [
-    	  <% for (Map.Entry<String, ArrayList<AssignmentData> > entry : classList.entrySet()) { %>
-    	  mapSize--;
-    	  	<% for (int i = 0; i < entry.getValue().size(); i++) { %>
-        		{
-          			title: <%= entry.getValue().get(i).getAssignmentName() %>,
-          			start: <%= entry.getValue().get(i).getDueDate() %>
-        		} 
-        		<% if (mapSize > 0 && i >= entry.getValue().size()-1) { %>
-        			, 
-        		<% } %>
-        	<% } %>
-        <% } %>
-      ],
-      eventClick: function(arg) {
-        if (confirm('delete event?')) {
-          arg.event.remove()
-        }
-      }
-    });
-
-    calendar.render();
-  });
+		var calendar = new FullCalendar.Calendar(calendarEl, {
+			plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'list', 'rrule'],
+			header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
+			},
+		editable: true,
+		events: [
+<%		for (Map.Entry<String, ArrayList<AssignmentData> > entry : classList.entrySet()) {
+			mapSize--;
+			for (int i = 0; i < entry.getValue().size(); i++) {%>
+				{
+					title: '<%= entry.getValue().get(i).getAssignmentName()%>',
+					start: '<%= entry.getValue().get(i).getDueDate()%>'
+				}
+<%				if (mapSize > 0 && i >= entry.getValue().size()-1) {%>
+					, 
+<% 				}%>
+<% 			}%>
+<%		}%>
+	],
+		
+		eventClick: function(arg) {
+	        if (confirm('delete event?')) {
+	          arg.event.remove()
+	        }
+	      }
+	    });
+	    calendar.render();
+	  });
+	
 
 </script>
 <style>
