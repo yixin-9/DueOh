@@ -8,10 +8,9 @@
 <link rel="stylesheet" href="login.css">
 <title>DueOh! Login</title>
 <style>
-#usernameMessage{
-margin-left:30.5%;
+#usernameMessage {
+	margin-left: 30.5%;
 }
-
 </style>
 </head>
 
@@ -33,8 +32,10 @@ margin-left:30.5%;
 	<div class="header">
 		<table>
 			<tr>
-				<td><a href="${pageContext.request.contextPath}/Login.jsp"><img class="logo" src="DueOh_logo2.jpg" style="margin-top: 30px; width: 150px; height: 150px;" /></td>
-	<!-- 			<td><img src="7fypsQy.gif"/ style="width: 150px; height: 150px; margin-left: 900px; margin-top: 35px; border-radius: 100px;"></td> -->
+				<td><a href="${pageContext.request.contextPath}/Login.jsp"><img
+						class="logo" src="DueOh_logo2.jpg"
+						style="margin-top: 30px; width: 150px; height: 150px;" /></td>
+				<!-- 			<td><img src="7fypsQy.gif"/ style="width: 150px; height: 150px; margin-left: 900px; margin-top: 35px; border-radius: 100px;"></td> -->
 			</tr>
 		</table>
 	</div>
@@ -50,7 +51,10 @@ margin-left:30.5%;
 						<br>
 					</tr>
 					<tr>
-						<p style="margin-top: -30px; margin-left: 310px;margin-bottom: -15px; color: white;"><b>Hello! Let's do our homework &#9996; </b></p>
+						<p
+							style="margin-top: -30px; margin-left: 310px; margin-bottom: -15px; color: white;">
+							<b>Hello! Let's do our homework &#9996; </b>
+						</p>
 					</tr>
 					<tr>
 						<td><input type="text" name="username" placeholder="username"
@@ -58,21 +62,24 @@ margin-left:30.5%;
 						</td>
 					</tr>
 					<tr>
-						<td><input type="password" name="password" placeholder="password"
+						<td><input type="password" name="password"
+							placeholder="password"
 							style="position: relative; font-size: 20px; top: 50%; left: 100%; margin-top: 20px; width: 400px; height: 30px; margin-left: -50px; border-radius: 5px; border: 2px solid white;">
 						</td>
 					</tr>
 
 					<tr>
-						<td><button class="button-small grey_dark rounded3" type="submit"
+						<td><button class="button-small grey_dark rounded3"
+								type="submit"
 								style="position: relative; top: 50%; left: 100%; margin-top: 20px; display: inline-block; margin-left: 110px; border-radius: 8px; font-size: 16px;">
-								Login</button>
-						</td>
+								Login</button></td>
 					</tr>
 					<tr>
-						<td>
-							<a style="position: relative; top: 50%; left: 100%; margin-top: 10px; margin-left: 200px; display: inline-block; font-color: black"href="${pageContext.request.contextPath}/Register.jsp"><b>Create new account</b></a><!-- </button> -->
-						</td>
+						<td><a
+							style="position: relative; top: 50%; left: 100%; margin-top: 10px; margin-left: 200px; display: inline-block; font-color: black"
+							href="${pageContext.request.contextPath}/Register.jsp"><b>Create
+									new account</b></a>
+						<!-- </button> --></td>
 					</tr>
 				</table>
 			</form>

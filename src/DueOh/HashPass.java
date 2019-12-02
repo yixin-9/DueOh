@@ -1,14 +1,14 @@
 package DueOh;
 
 public class HashPass {
-	public static String calculateHash (String s) {
+	public static String calculateHash(String s) {
 		long password = (int) s.charAt(0);
-		for(int i = 1; i < s.length(); i++) {
+		for (int i = 1; i < s.length(); i++) {
 			password *= 128;
 			password += (int) s.charAt(i);
 		}
 		int i = 3;
-		long[] array = {0, 0, 0, 0};
+		long[] array = { 0, 0, 0, 0 };
 		while (password != 0) {
 			long x = password % 48291;
 			password = password / 48291;

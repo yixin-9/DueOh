@@ -115,26 +115,28 @@ h1 {
 
 </head>
 <script>
-function sendAssign(className, assignName) {
-	var xhttp = new XMLHttpRequest();
-	xhttp.open("GET", "RemoveAssignment?className=" + className + "&assignName=" + assignName, false);
-	xhttp.send();
-	window.location.assign("profile.jsp");
-}
-function doneCheck(className, assignName, assignLink, submitStatus) {
-	var xhttp = new XMLHttpRequest();
-	xhttp.open("GET", "DoneAssign?className=" + className + "&assignName=" + assignName 
-			+ "&assignLink=" + assignLink + "&submitStatus=" + submitStatus, false);
-	xhttp.send();
-	window.location.assign("profile.jsp");
-}
-function myFunction() {
-	  var x = document.getElementById("myDIV");
-	  if (x.style.display === "none") {
-	    x.style.display = "block";
-	  } else {
-	    x.style.display = "none";
-	  }
+	function sendAssign(className, assignName) {
+		var xhttp = new XMLHttpRequest();
+		xhttp.open("GET", "RemoveAssignment?className=" + className
+				+ "&assignName=" + assignName, false);
+		xhttp.send();
+		window.location.assign("profile.jsp");
+	}
+	function doneCheck(className, assignName, assignLink, submitStatus) {
+		var xhttp = new XMLHttpRequest();
+		xhttp.open("GET", "DoneAssign?className=" + className + "&assignName="
+				+ assignName + "&assignLink=" + assignLink + "&submitStatus="
+				+ submitStatus, false);
+		xhttp.send();
+		window.location.assign("profile.jsp");
+	}
+	function myFunction() {
+		var x = document.getElementById("myDIV");
+		if (x.style.display === "none") {
+			x.style.display = "block";
+		} else {
+			x.style.display = "none";
+		}
 	}
 </script>
 <body>
@@ -164,9 +166,10 @@ function myFunction() {
 						</form>
 					</td>
 				</tr>
-		</table>		 
+			</table>
 			<div>
-			<a href="${pageContext.request.contextPath}/Calendar.jsp">Click here to see calendar!</a>
+				<a href="${pageContext.request.contextPath}/Calendar.jsp">Click
+					here to see calendar!</a>
 				<%
 					for (Map.Entry<String, ArrayList<AssignmentData>> entry : classList.entrySet()) {
 				%>
@@ -180,7 +183,7 @@ function myFunction() {
 						<th>Assignment</th>
 						<th>Deadline</th>
 						<th>Submit Status</th>
-						<th> Submission Link </th>
+						<th>Submission Link</th>
 						<th>Done!</th>
 						<th id="">Remove</th>
 					</tr>
@@ -188,38 +191,39 @@ function myFunction() {
 						for (int i = 0; i < entry.getValue().size(); i++) {
 					%>
 					<tr>
-						
+
 						<td><%=entry.getValue().get(i).getAssignmentName()%></td>
 						<td><%=entry.getValue().get(i).getDueDate()%></td>
 						<td><%=entry.getValue().get(i).getSubmitStatus()%></td>
-						<td><a href=<%=entry.getValue().get(i).getAssignLink()%> target="_blank" rel="noopener">
-						 Click me to submit!</a></td>
+						<td><a href=<%=entry.getValue().get(i).getAssignLink()%>
+							target="_blank" rel="noopener"> Click me to submit!</a></td>
 						<td>
 							<%
 								session.setAttribute("username", username);
 							%>
-							<button type="submit" onclick="doneCheck('<%=entry.getKey()%>', 
+							<button type="submit"
+								onclick="doneCheck('<%=entry.getKey()%>', 
 							'<%=entry.getValue().get(i).getAssignmentName()%>',
 							'<%=entry.getValue().get(i).getAssignLink()%>',
-							'<%=entry.getValue().get(i).getSubmitStatus()%>')">Done!</button> 
-						
+							'<%=entry.getValue().get(i).getSubmitStatus()%>')">Done!</button>
+
 						</td>
-						
+
 						<td>
-							<div id ="myDIV">
-							<button type="submit" onclick="sendAssign('<%=entry.getKey()%>',
+							<div id="myDIV">
+								<button type="submit"
+									onclick="sendAssign('<%=entry.getKey()%>',
 							'<%=entry.getValue().get(i).getAssignmentName()%>')">Remove</button>
 							</div>
 						</td>
 					</tr>
-					
+
 					<%
 						}
 					%>
-					
+
 				</table>
-				<br>
-				<br>
+				<br> <br>
 				<%
 					}
 				%>
@@ -229,7 +233,8 @@ function myFunction() {
 					style="margin-left: 900px; border-radius: 8px; font-size: 12px; border-color: black;">
 			</form>
 			<button class="button-small" onclick="myFunction()"
-			style="margin-left: 900px; border-radius: 8px; font-size: 12px; border-color: black;">Remove Assignment</button>
+				style="margin-left: 900px; border-radius: 8px; font-size: 12px; border-color: black;">Remove
+				Assignment</button>
 		</div>
 	</div>
 

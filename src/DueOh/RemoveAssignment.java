@@ -21,19 +21,21 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/RemoveAssignment")
 public class RemoveAssignment extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public RemoveAssignment() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public RemoveAssignment() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void service(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		HttpSession session = request.getSession();
 		String username = (String) session.getAttribute("username");
 		String className = request.getParameter("className");
@@ -42,21 +44,18 @@ public class RemoveAssignment extends HttpServlet {
 		System.out.println(className);
 		System.out.println(assignmentName);
 		System.out.println("Hello, I am in java file");
-		
+
 		Connection conn = null;
 		PreparedStatement ps = null;
 		ResultSet rs = null;
-		String sql = "jdbc:mysql://google/DueOh"
-				+ "?cloudSqlInstance=cs201dueoh:us-central1:dueoh"
-				+ "&socketFactory=com.google.cloud.sql.mysql.SocketFactory"
-				+ "&useSSL=false"
-				+ "&user=user"
+		String sql = "jdbc:mysql://google/DueOh" + "?cloudSqlInstance=cs201dueoh:us-central1:dueoh"
+				+ "&socketFactory=com.google.cloud.sql.mysql.SocketFactory" + "&useSSL=false" + "&user=user"
 				+ "&password=user";
-		
-		//SQL Queries
+
+		// SQL Queries
 		// SQL Queries
 		String deleteString = "DELETE FROM Assignment WHERE ClassName = ? AND AssignmentName = ? AND Username = ?";
-		
+
 		try {
 			System.out.println("222");
 			conn = DriverManager.getConnection(sql);
@@ -66,26 +65,26 @@ public class RemoveAssignment extends HttpServlet {
 			ps.setString(3, username);
 			ps.executeUpdate();
 			System.out.println("3333");
-		}//try
-		catch(SQLException e) {
+		} // try
+		catch (SQLException e) {
 			e.printStackTrace();
-		}//catch
+		} // catch
 		finally {
 			try {
 				if (rs != null) {
 					rs.close();
-				}//if
+				} // if
 				if (ps != null) {
 					ps.close();
-				}//if
+				} // if
 				if (conn != null) {
 					conn.close();
-				}//if
-			}//try
+				} // if
+			} // try
 			catch (SQLException sqle) {
 				System.out.println("sqle: " + sqle.getMessage());
-			}//catch
-		}//finally
-	}//service
+			} // catch
+		} // finally
+	}// service
 
-}//RemoveAssignment
+}// RemoveAssignment
