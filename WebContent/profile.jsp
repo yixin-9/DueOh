@@ -116,11 +116,14 @@ h1 {
 </head>
 <script>
 	function sendAssign(className, assignName) {
-		var xhttp = new XMLHttpRequest();
-		xhttp.open("GET", "RemoveAssignment?className=" + className
-				+ "&assignName=" + assignName, false);
-		xhttp.send();
-		window.location.assign("profile.jsp");
+		var confirm = confirm("Are you sure you want to remove the assignment?");
+		if(confirm == true){
+			var xhttp = new XMLHttpRequest();
+			xhttp.open("GET", "RemoveAssignment?className=" + className
+					+ "&assignName=" + assignName, false);
+			xhttp.send();
+			window.location.assign("profile.jsp");			
+		}
 	}
 	function doneCheck(className, assignName, assignLink, submitStatus) {
 		var xhttp = new XMLHttpRequest();
