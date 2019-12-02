@@ -212,14 +212,12 @@ h1 {
 							'<%=entry.getValue().get(i).getSubmitStatus()%>')">Done!</button>
 
 						</td>
-
-						<td>
-							<div id="myDIV">
-								<button type="submit"
-									onclick="sendAssign('<%=entry.getKey()%>',
-							'<%=entry.getValue().get(i).getAssignmentName()%>')">Remove</button>
-							</div>
-						</td>
+						<div id = "myDIV"></div>
+							<td>
+									<button type="submit"
+										onclick="sendAssign('<%=entry.getKey()%>',
+								'<%=entry.getValue().get(i).getAssignmentName()%>')">Remove</button>
+							</td>
 					</tr>
 
 					<%
