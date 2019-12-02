@@ -116,8 +116,9 @@ h1 {
 </head>
 <script>
 	function sendAssign(className, assignName) {
-		var confirm = confirm("Are you sure you want to remove the assignment?");
-		if(confirm == true){
+		var r;
+		r = confirm("Are you sure you want to remove the assignment?");
+		if(r == true){
 			var xhttp = new XMLHttpRequest();
 			xhttp.open("GET", "RemoveAssignment?className=" + className
 					+ "&assignName=" + assignName, false);
