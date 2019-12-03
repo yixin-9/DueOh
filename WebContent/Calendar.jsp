@@ -46,6 +46,7 @@
 				center: 'title',
 				right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
 			},
+		nextDayThreshold: '03:00:00',
 		editable: true,
 		events: [
 <%		for (Map.Entry<String, ArrayList<AssignmentData> > entry : classList.entrySet()) {
