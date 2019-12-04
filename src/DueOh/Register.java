@@ -118,8 +118,8 @@ public class Register extends HttpServlet {
 				// Login after registered
 				loggedIn = true;
 				session.setAttribute("loggedIn", loggedIn);
-				session.setAttribute("loggedInUser", username);
-				RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/Login.jsp"); // Go to the login
+				session.setAttribute("username", username);
+				RequestDispatcher dispatch = getServletContext().getRequestDispatcher("/profile.jsp"); // Go to the login
 																										// page if the
 																										// user register
 																										// successfully

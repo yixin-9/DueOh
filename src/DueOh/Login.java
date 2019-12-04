@@ -42,6 +42,14 @@ public class Login extends HttpServlet {
 		HttpSession session = request.getSession(true);
 		String username = request.getParameter("username").trim();
 		String password = request.getParameter("password").trim();
+		if(username.equals("")) {
+			session.setAttribute("username_error_Login", "Please enter your username ");
+			session.setAttribute("loggedIn", false);
+		}
+		if(password.equals("")) {
+			session.setAttribute("password_error_Login", "Please enter your password ");
+			session.setAttribute("loggedIn", false);
+		}
 
 		// to hash the password
 		password = HashPass.calculateHash(password);
@@ -63,7 +71,7 @@ public class Login extends HttpServlet {
 				rs = ps.executeQuery();
 
 				if (rs.next() == false) { // If the user name doesn't exist
-					session.setAttribute("username_error_Login", "This user does not exist. ");
+					session.setAttribute("username_error_Login", "This user does not exist ");
 					invalid = true;
 					session.setAttribute("loggedIn", false);
 					session.setAttribute("username", "");
@@ -78,7 +86,7 @@ public class Login extends HttpServlet {
 						dispatch.forward(request, response);
 					} // if
 					else { // If the password is incorrect
-						session.setAttribute("password_error_Login", "Incorrect password. ");
+						session.setAttribute("password_error_Login", "Incorrect password ");
 						invalid = true;
 						session.setAttribute("loggedIn", false);
 						session.setAttribute("username", "");

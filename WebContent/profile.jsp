@@ -150,6 +150,7 @@ h1 {
 </script>
 <body>
 
+	
 	<%
 	for (Map.Entry<String, ArrayList<AssignmentData>> entry : classList.entrySet()) {
 		for (int i = 0; i < entry.getValue().size(); i++) {
@@ -167,7 +168,7 @@ h1 {
 	
 	<nav class="navbar navbar-light bg-light">
 		<a class="navbar-brand"
-			href="${pageContext.request.contextPath}/Login.jsp"> <img
+			href="${pageContext.request.contextPath}/profile.jsp"> <img
 			src="DueOh_logo3.png"
 			style="margin-top: 10px; margin-left: 75%; width: 180px; height: 180px;" />
 		</a>
@@ -191,10 +192,21 @@ h1 {
     <h3 style="margin-right: 150px; margin-bottom: 10px; color: white;">Welcome,<%=username%></h3>
   </nav>
 </div>
-
+	
 	
 		<div class="form-content content">
 			<br>
+			<%
+	if(table.isEmpty()) {
+		%>
+		<br>
+		<br>
+		<br>
+		<br>
+		<h1>Please add an assignment from the top left tab!</h1>
+	<%
+	}
+	%>
 			<div>
 				<%
 					for (Map.Entry<String, ArrayList<AssignmentData>> entry : classList.entrySet()) {
