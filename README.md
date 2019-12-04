@@ -6,7 +6,7 @@
 #### Home Page/ Login Page
 ![Image of Login](https://github.com/yixin-9/DueOh/blob/master/Screenshots/Login:HomePage.png)
 #### Register Page (including Error Messages)
-![Image of Register](
+![Image of Register](https://github.com/yixin-9/DueOh/blob/master/Screenshots/RegisterPage.png)
 #### Profile Page
 ![Image of Profile](https://github.com/yixin-9/DueOh/blob/master/Screenshots/ProfilePage.png)
 #### GUI Homework CountDown
