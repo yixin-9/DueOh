@@ -21,6 +21,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+	
 <title>DueOh! Profile</title>
 
 <style>
@@ -39,7 +44,7 @@ body {
 }
 
 .content {
-	background-image: url("background.png");
+	background-image: url("DueOh_Background.png");
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 100vh;
@@ -108,7 +113,7 @@ h1 {
 	padding-top: 12px;
 	padding-bottom: 12px;
 	text-align: left;
-	background-color: #ED7F61;
+	background-color: #f7a46b;
 	color: white;
 }
 </style>
@@ -159,15 +164,18 @@ h1 {
 	%>
 
 
-	<div class="header">
-		<table>
-			<tr>
-				<td><a href="${pageContext.request.contextPath}/profile.jsp"><img
-						class="logo" src="DueOh_logo2.jpg"
-						style="margin-top: 30px; width: 150px; height: 150px;" /></td>
-			</tr>
-		</table>
-	</div>
+	
+	<nav class="navbar navbar-light bg-light">
+		<a class="navbar-brand"
+			href="${pageContext.request.contextPath}/Login.jsp"> <img
+			src="DueOh_logo3.png"
+			style="margin-top: 10px; margin-left: 75%; width: 180px; height: 180px;" />
+		</a>
+		<a class="nav-link active" style=" margin-top: 10px; margin-left: 350px; display: inline-block; color: grey; font-size: 20px;"href="${pageContext.request.contextPath}/profile.jsp">Guest</a>
+		<a class="nav-link active" style=" margin-top: 10px; margin-left: -500px; margin-right: 150px; display: inline-block; color: grey; font-size: 20px;"href="${pageContext.request.contextPath}/Register.jsp"">Register</a>
+	</nav>
+
+
 
 	<div class="content">
 		<div class="form-content">

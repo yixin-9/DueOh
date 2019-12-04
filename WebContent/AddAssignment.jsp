@@ -4,7 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Add assignment</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+	<link rel="stylesheet" href="login.css">
+<title>Add Assignment</title>
 <%
 	String assignExist = (String) request.getAttribute("assignExist");
 	if (assignExist == null) {
@@ -15,54 +20,73 @@
 
 
 <link rel="stylesheet" href="login.css">
+<style>
+#usernameMessage {
+	margin-left: 30.5%;
+}
+.content {
+	background-image: url("DueOh_Background.png");
+	
+	height: 100vh;
+}
+</style>
 </head>
 <body>
-	<div class="header">
-		<table>
-			<tr>
-				<td><a href="${pageContext.request.contextPath}/profile.jsp"><img
-						class="logo" src="DueOh_logo2.jpg"
-						style="margin-top: 30px; width: 150px; height: 150px;" /></td>
-				<!-- 			<td><img src="7fypsQy.gif"/ style="width: 150px; height: 150px; margin-left: 900px; margin-top: 35px; border-radius: 100px;"></td> -->
-			</tr>
-		</table>
-	</div>
-	<div class="content">
-		<div class="form-content">
+	<nav class="navbar navbar-light bg-light">
+		<a class="navbar-brand"
+			href="${pageContext.request.contextPath}/Login.jsp"> <img
+			src="DueOh_logo3.png"
+			style="margin-top: 10px; margin-left: 75%; width: 180px; height: 180px;" />
+		</a>
+			<a class="nav-link active" style=" margin-top: 10px; margin-left: -500px; margin-right: 150px; display: inline-block; color: grey; font-size: 20px;"href="${pageContext.request.contextPath}/profile.jsp"">Profile</a>
+	</nav>
+<div class="container" style="background-size: 200%; background-image: url(DueOh_Background.png);">
+  <div class="row">
+  <div class="col-sm back">
+      
+    </div>
+    <div class="col-sm content">
+		<div class="form-content" >
 			<form method="POST" action="AddAssignment">
 				<table>
 					<tr>
-						<p style="margin-left: 400px; margin-top: -20px; margin-bottom: -10px;">
+					<p style="margin-left: -250px; margin-bottom: 10px; color: white;font-size: 20px;">
 							<b>Add Your Assignment Here &#128521</b>
-						</p>
+					</p>
 					</tr>
 					<tr>
 						<td><input type="text" name="className"
 							placeholder="Class Name"
-							style="position: relative; font-size: 20px; left: 100%; margin-top: 20px; width: 400px; height: 30px; margin-left: -50px; border-radius: 5px; border: 2px solid white;"></td>
-					</tr>
+							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 30px; margin-left: -280px; border-radius: 4px; border: 2px solid white;">
+						</td></tr>
 					<tr>
 						<td><input type="text" name="assignmentName"
 							placeholder="Assignment"
-							style="position: relative; font-size: 20px; top: 50%; left: 100%; margin-top: 20px; width: 400px; height: 30px; margin-left: -50px; border-radius: 5px; border: 2px solid white;"></td>
-					</tr>
+							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 30px; margin-left: -280px; border-radius: 4px; border: 2px solid white;">
+						</td></tr>
 					<tr>
 						<%=assignExist%>
 					</tr>
 					<tr>
 						<td><input type="datetime-local" name="dueDate"
-							style="position: relative; font-size: 20px; top: 50%; left: 100%; margin-top: 20px; width: 400px; height: 30px; margin-left: -50px; border-radius: 5px; border: 2px solid white;"
-							required></td>
+							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 30px; margin-left: -280px; border-radius: 4px; border: 2px solid white;"
+						required></td>
 					</tr>
 					<tr>
 						<td><input type="text" name="assignLink"
 							placeholder="Assignment Link"
-							style="position: relative; font-size: 20px; left: 100%; margin-top: 20px; width: 400px; height: 30px; margin-left: -50px; border-radius: 5px; border: 2px solid white;"></td>
-					</tr>
+							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 30px; margin-left: -280px; border-radius: 4px; border: 2px solid white;">
+						</td></tr>
 				</table>
-				<button type="submit">Add Assignment</button>
+				<button class="button-small grey_dark rounded3"
+								type="submit"
+								style="position: relative; top: 50%; margin-top: 20px; display: inline-block; margin-left: -180px; border-radius: 5px; font-size: 16px;">
+								Add Assignment</button>
 			</form>
 		</div>
+		
 	</div>
+    </div>
+  </div>
 </body>
 </html>

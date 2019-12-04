@@ -120,10 +120,11 @@
 		<br>
 		<div class="container" style="background-image: url(DueOh_Background.png);">
   <div class="row">
+  
     <div class="col-sm back">
-		<div id='calendar' style="margin-top:30px"></div></div>
+		<div id='calendar' style="margin-top:30px"></div><br></div>
 	</div>
-
+</div></div>
 
 </body>
 </html>
