@@ -12,8 +12,10 @@
 <link rel="stylesheet" href="login.css">
 <title>DueOh! Login</title>
 <style>
-#usernameMessage {
-	margin-left: 30.5%;
+
+.error{
+color:grey;
+margin-left: 5.5%;
 }
 .content {
 	background-image: url("DueOh_Background.png");
@@ -61,12 +63,7 @@
 
 			<form method="POST" action="Login">
 				<table>
-					<tr>
-						<span id="usernameMessage"><%=username_error%></span>
-						<span id="passwordMessage"><%=password_error%></span>
-						<br>
-					</tr>
-					<tr>
+					<tr><br>
 						<p
 							style="margin-left: 45px; margin-bottom: 10px; color: white;font-size: 35px;">
 							Login 
@@ -76,8 +73,13 @@
 							<b>Hello! Let's do our homework &#9996; </b>
 						</p>
 					</tr>
-					<tr>
 					
+					<tr>
+						<span class="error" id="usernameMessage"><%=username_error%></span>
+						<span class="error" id="passwordMessage"><%=password_error%></span>
+						<br>
+					</tr>
+					<tr>
 						<td><input type="text" name="username" placeholder="Username" class="form-control"
 							style="position: relative; font-size: 20px; top: 50%; margin-top: 25px; width: 350px; height: 30px; margin-left: -80px; border-radius: 4px; border: 2px solid white;"
 							required>

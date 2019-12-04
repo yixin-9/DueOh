@@ -11,8 +11,9 @@
 <link rel="stylesheet" href="login.css">
 <title>DueOh! Register</title>
 <style>
-#usernameMessage {
-	margin-left: 30.5%;
+.error{
+color:grey;
+
 }
 .content {
 	background-image: url("DueOh_Background.png");
@@ -61,11 +62,7 @@
 			<form method="POST" action="Register">
 				<table>
 					<tr>
-						<span id="usernameMessage"><%=username_error%></span>
-						<span id="passwordMessage"><%=password_error%></span>
-						<br>
-					</tr>
-					<tr>
+					<br>
 						<p
 							style="margin-left: 30px; margin-bottom: 10px; color: white;font-size: 35px;">
 							Sign Up 
@@ -75,21 +72,27 @@
 							<b>Welcome! Let's do our homework &#9996; </b>
 						</p>
 					</tr>
+					
 					<tr>
 						<td><input type="text" name="username" placeholder="Username" class="form-control"
-							style="position: relative; font-size: 20px; top: 50%; margin-top: 25px; width: 350px; height: 30px; margin-left: -80px; border-radius: 4px; border: 2px solid white;"></td>
+							style="position: relative; font-size: 20px; top: 50%; margin-top: 25px; width: 350px; height: 30px; margin-left: -80px; border-radius: 4px; border: 2px solid white;"required></td>
 						</td>
+					</tr>
+					<tr>
+						<span class="error" id="usernameMessage"><%=username_error%></span>
+						<span class="error" id="passwordMessage"><%=password_error%></span>
+						<br>
 					</tr>
 					<tr>
 						<td><input type="password" name="password"
 							placeholder="Password" class="form-control"
-							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 30px; margin-left: -80px; border-radius: 4px; border: 2px solid white;">
+							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 30px; margin-left: -80px; border-radius: 4px; border: 2px solid white;"required>
 						</td>
 					</tr>
 					<tr>
 						<td><input type="password" name="confirm_password"
 							placeholder="Confirm Password" class="form-control"
-							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 30px; margin-left: -80px; border-radius: 4px; border: 2px solid white;">
+							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 30px; margin-left: -80px; border-radius: 4px; border: 2px solid white;"required>
 						</td>
 					</tr>
 
