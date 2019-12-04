@@ -136,6 +136,8 @@ tbody.fc-body {
 						style="margin-left: 120px; margin-bottom: 10px; font-size:15px;color: white;"
 						href="${pageContext.request.contextPath}/profile.jsp">Profile</a></span>
 					<h6></h6>
+					 <a  style="margin-left: 120px; margin-bottom: 10px; color: white;font-size:15px;" href="${pageContext.request.contextPath}/Metrics.jsp" >Analytics</a><h6></h6>
+   
 					<a style="margin-left: 120px; margin-bottom: 10px; font-size:15px; color: white;"
 						href="${pageContext.request.contextPath}/SignOut" id="signOut">Sign
 						Out</a>

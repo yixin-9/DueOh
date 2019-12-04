@@ -18,17 +18,59 @@
 	<link rel="stylesheet" href="assets/styles.css">
 	<style>
 	body {
-			margin: 40px 10px;
-			padding: 0;
+		
 			font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 			font-size: 14px;
-			background-color: #ffb37d;
+			background-color: white;
 		}
+		.content {
+	background-image: url("DueOh_Background.png");
+	height: 100vh;
+}
 	</style>
 
 </head>
 
 <body>
+
+		<nav class="navbar navbar-light bg-light">
+			<a class="navbar-brand"
+				href="${pageContext.request.contextPath}/Login.jsp"> <img
+				src="DueOh_logo3.png"
+				style="margin-top: 10px; margin-left: 75%; width: 180px; height: 180px;" />
+			</a> <a class="nav-link active"
+				style="margin-top: 10px; margin-left: -500px; margin-right: 150px; display: inline-block; color: grey; font-size: 20px;"
+				href="${pageContext.request.contextPath}/profile.jsp">Profile</a>
+		</nav>
+<div class="content">
+<div class="content">
+		<div class="pos-f-t">
+			<div class="collapse" id="navbarToggleExternalContent">
+				<div class="bg-dark p-4">
+					
+						
+					<a style="margin-left: 120px; margin-bottom: 10px; font-size:15px; color: white;"
+						href="${pageContext.request.contextPath}/AddAssignment.jsp">Add
+						Assignment</a>
+					<h6></h6>
+					<span class="text-muted"><a
+						style="margin-left: 120px; margin-bottom: 10px; font-size:15px;color: white;"
+						href="${pageContext.request.contextPath}/profile.jsp">Profile</a></span>
+					<h6></h6>
+					<a style="margin-left: 120px; margin-bottom: 10px; font-size:15px; color: white;"
+						href="${pageContext.request.contextPath}/SignOut" id="signOut">Sign
+						Out</a>
+
+				</div>
+			</div>
+			<nav class="navbar navbar-dark bg-dark">
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarToggleExternalContent"
+					aria-controls="navbarToggleExternalContent" aria-expanded="false"
+					aria-label="Toggle navigation" style="margin-left: 130px;">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</nav>
 
 
 	<div id="wrapper">
@@ -55,6 +97,7 @@
 				</div>
 			</div>
 		</div>
+		</div>
 	</div>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.9.1/underscore.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
@@ -67,6 +110,14 @@
 	<script>
 
 	</script>
+	
+	<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+ 
+	
 </body>
 
 </html>
