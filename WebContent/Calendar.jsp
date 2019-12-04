@@ -57,16 +57,13 @@
 		editable: true,
 		events: [
 <%for (Map.Entry<String, ArrayList<AssignmentData>> entry : classList.entrySet()) {
-				mapSize--;
-				for (int i = 0; i < entry.getValue().size(); i++) {%>
+		mapSize--;
+			for (int i = 0; i < entry.getValue().size(); i++) {%>
 				{
 					title: '<%=entry.getValue().get(i).getAssignmentName()%>',
 					start: '<%=entry.getValue().get(i).getDueDate()%>'
-				}
-<%if (mapSize > 0 && i >= entry.getValue().size() - 1) {%>
-					, 
-<%}%>
-<%}%>
+				},
+			<%}%>
 <%}%>
 	],
 		
