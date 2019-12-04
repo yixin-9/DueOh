@@ -160,7 +160,7 @@ h1 {
 		<div class="form-content">
 			<table>
 				<tr>
-					<td><p style="margin-left: 150px;">
+					<td id = "Welcom"><p style="margin-left: 150px;">
 							Welcome,<%=username%></p></td>
 					<td>
 						<form method="GET" action="Login.jsp">
