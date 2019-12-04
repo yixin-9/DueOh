@@ -28,7 +28,7 @@ body {
 	margin: 0;
 	padding: 0;
 	position: relative;
-	font-family: Helvetica;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 }
 
 .logo {
@@ -176,7 +176,7 @@ h1 {
 						Login</a>
 				</h4>
 				<span class="text-muted"><a
-					style="margin-left: 120px; margin-bottom: 10px; color: white;"
+					style="margin-left: 120px; margin-bottom: 10px; font-size:15px; color: white;"
 					href="${pageContext.request.contextPath}/Register.jsp">Register</a></span>
 			</div>
 		</div>

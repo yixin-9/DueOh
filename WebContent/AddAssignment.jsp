@@ -21,6 +21,12 @@
 
 <link rel="stylesheet" href="login.css">
 <style>
+body {
+	margin: 0;
+	padding: 0;
+	position: relative;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+}
 #usernameMessage {
 	margin-left: 30.5%;
 }
@@ -45,8 +51,8 @@
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-dark p-4">
       <h4 class="text-white h4"> <a style="margin-left: 120px; margin-bottom: 10px; color: white;" href="${pageContext.request.contextPath}/profile.jsp">Back to Profile</a></h4>
-      <span class="text-muted"><a style="margin-left: 120px; margin-bottom: 10px; color: white;" href="${pageContext.request.contextPath}/Calendar.jsp">Calendar</a></span><h6></h6>
-      <a  style="margin-left: 120px; margin-bottom: 10px; color: white;" href="${pageContext.request.contextPath}/SignOut" id="signOut" >Sign Out</a> 
+      <span class="text-muted"><a style="margin-left: 120px; margin-bottom: 10px; font-size:15px; color: white;" href="${pageContext.request.contextPath}/Calendar.jsp">Calendar</a></span><h6></h6>
+      <a  style="margin-left: 120px; margin-bottom: 10px; font-size:15px; color: white;" href="${pageContext.request.contextPath}/SignOut" id="signOut" >Sign Out</a> 
       
     </div>
   </div>

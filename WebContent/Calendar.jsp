@@ -27,7 +27,7 @@
 	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
 	crossorigin="anonymous">
 
-
+	
 <link href='fullcalendar/packages/core/main.css' rel='stylesheet' />
 <link href='fullcalendar/packages/daygrid/main.css' rel='stylesheet' />
 <link href='fullcalendar/packages/timegrid/main.css' rel='stylesheet' />
@@ -120,7 +120,7 @@ tbody.fc-body {
 				style="margin-top: 10px; margin-left: 75%; width: 180px; height: 180px;" />
 			</a> <a class="nav-link active"
 				style="margin-top: 10px; margin-left: -500px; margin-right: 150px; display: inline-block; color: grey; font-size: 20px;"
-				href="${pageContext.request.contextPath}/profile.jsp"">Profile</a>
+				href="${pageContext.request.contextPath}/profile.jsp">Profile</a>
 		</nav>
 <div class="content">
 		<div class="pos-f-t">
@@ -128,15 +128,15 @@ tbody.fc-body {
 				<div class="bg-dark p-4">
 					<h4 class="text-white h4"
 						style="margin-left: 120px; margin-bottom: 10px; color: white;"><%=username%></h4>
-					<a style="margin-left: 120px; margin-bottom: 10px; color: white;"
+					<a style="margin-left: 120px; margin-bottom: 10px; font-size:15px; color: white;"
 						href="${pageContext.request.contextPath}/AddAssignment.jsp">Add
 						Assignment</a>
 					<h6></h6>
 					<span class="text-muted"><a
-						style="margin-left: 120px; margin-bottom: 10px; color: white;"
+						style="margin-left: 120px; margin-bottom: 10px; font-size:15px;color: white;"
 						href="${pageContext.request.contextPath}/profile.jsp">Profile</a></span>
 					<h6></h6>
-					<a style="margin-left: 120px; margin-bottom: 10px; color: white;"
+					<a style="margin-left: 120px; margin-bottom: 10px; font-size:15px; color: white;"
 						href="${pageContext.request.contextPath}/SignOut" id="signOut">Sign
 						Out</a>
 
@@ -157,6 +157,12 @@ tbody.fc-body {
 		</div>
 	</div>
 </div>
+<!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+ 
 
 </body>
 </html>
