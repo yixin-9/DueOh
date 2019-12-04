@@ -205,14 +205,14 @@ h1 {
 					
 					<div id="accordion"> <div class="card" style="width: 75%;margin-left:10%" > <div class="card-header" id="headingOne" style="background-color: #353a40; ">
       					<h5 class="mb-0">
-       				 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color:white; font-size: 18px;">
+       				 <button class="btn btn-link" data-toggle="collapse" data-target="#collapse<%entry.getKey();%>" aria-expanded="true" aria-controls="collapseOne" style="color:white; font-size: 18px;">
           				<%=entry.getKey()%>
         			</button>
       				</h5></div>
 						
 					
 					
-					<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion"><div class="card-body" style="background-color: white; ">
+					<div id="collapse<%entry.getKey();%>" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion"><div class="card-body" style="background-color: white; ">
        					<table id="class"><tr>
        					<th> Assignment </th>
 						<th> Deadline </th>
@@ -232,12 +232,12 @@ h1 {
 						<td><%=entry.getValue().get(i).getDueDate()%></td>
 						<td><%=entry.getValue().get(i).getSubmitStatus()%></td>
 						<td><a href=<%=entry.getValue().get(i).getAssignLink()%>
-							target="_blank" rel="noopener"> Click me to submit!</a></td>
+							target="_blank" rel="noopener" style=" color:grey; font-size: 15px; "> Click me to submit!</a></td>
 						<td>
 							<%
 								session.setAttribute("username", username);
 							%>
-							<button type="submit"
+							<button style="border-radius: 4px; font-size: 12px; " type="submit"
 								onclick="doneCheck('<%=entry.getKey()%>', 
 							'<%=entry.getValue().get(i).getAssignmentName()%>',
 							'<%=entry.getValue().get(i).getAssignLink()%>',
@@ -246,7 +246,7 @@ h1 {
 						</td>
 						<div id = "myDIV"></div>
 							<td>
-									<button type="submit"
+									<button style="border-radius: 4px; font-size: 12px; "type="submit"
 										onclick="sendAssign('<%=entry.getKey()%>',
 								'<%=entry.getValue().get(i).getAssignmentName()%>')">Remove</button>
 							</td>
