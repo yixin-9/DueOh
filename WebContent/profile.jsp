@@ -145,6 +145,19 @@ h1 {
 </script>
 <body>
 
+	<%
+	for (Map.Entry<String, ArrayList<AssignmentData>> entry : classList.entrySet()) {
+		for (int i = 0; i < entry.getValue().size(); i++) {
+			long timeLeft = entry.getValue().get(i).getDueDate().getTime() - System.currentTimeMillis();
+			if (timeLeft <= 604800000 && timeLeft >= 0) {
+			GUIShapeThreads guit = new GUIShapeThreads(entry.getValue().get(i).getAssignmentName(), entry.getValue().get(i).getDueDate().getTime());
+				guit.setTitle(entry.getValue().get(i).getAssignmentName());
+				guit.setVisible(true);
+			}
+		}
+	}
+	%>
+
 
 	<div class="header">
 		<table>
