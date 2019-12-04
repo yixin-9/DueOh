@@ -15,6 +15,12 @@
 #usernameMessage {
 	margin-left: 30.5%;
 }
+.content {
+	background-image: url("DueOh_Background.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+}
 </style>
 </head>
 
@@ -36,7 +42,7 @@
 	<nav class="navbar navbar-light bg-light">
 		<a class="navbar-brand"
 			href="${pageContext.request.contextPath}/Login.jsp"> <img
-			src="DueOh_logo2.jpg"
+			src="DueOh_logo3.png"
 			style="margin-top: 10px; margin-left: 75%; width: 180px; height: 180px;" />
 		</a>
 		<a class="nav-link active" style=" margin-top: 10px; margin-left: 350px; display: inline-block; color: grey; font-size: 20px;"href="${pageContext.request.contextPath}/profileGuest.jsp">Guest</a>
