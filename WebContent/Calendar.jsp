@@ -22,6 +22,11 @@
     <html lang='en'>
 <head>
     <meta charset='utf-8' />
+    <link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+
 	
 	<link href='fullcalendar/packages/core/main.css' rel='stylesheet' />
 	<link href='fullcalendar/packages/daygrid/main.css' rel='stylesheet' />
@@ -80,11 +85,9 @@
 
 	<style>
 		body {
-			margin: 40px 10px;
-			padding: 0;
 			font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 			font-size: 14px;
-			background-color: #ffb37d;
+			background-color: white;
 		}
   
 		thead.fc-head {
@@ -105,23 +108,20 @@
 
 <body>
 	<div class="header">
-		<div>
-		<table>
-			<tr>
-				<td>
-					<a href="${pageContext.request.contextPath}/profile.jsp"><img class="logo" src="DueOh_logo.png" style="margin-top: 30px; width: 150px; height: 150px;" />
-				</td>
-				<!--
-				<td>
-					<img src="7fypsQy.gif"/ style="width: 150px; height: 150px; margin-left: 900px; margin-top: 35px; border-radius: 100px;">
-				</td>
-				-->
-			</tr>
-		</table>
-		</div>
-		<hr>
-		<h1></h1>
-		<div id='calendar' style="margin-top:30px"></div>
+		<nav class="navbar navbar-light bg-light">
+		<a class="navbar-brand"
+			href="${pageContext.request.contextPath}/Login.jsp"> <img
+			src="DueOh_logo3.png"
+			style="margin-top: 10px; margin-left: 75%; width: 180px; height: 180px;" />
+		</a>
+		<a class="nav-link active" style=" margin-top: 10px; margin-left: -500px; margin-right: 150px; display: inline-block; color: grey; font-size: 20px;"href="${pageContext.request.contextPath}/profile.jsp"">Profile</a>
+	</nav>
+
+		<br>
+		<div class="container" style="background-image: url(DueOh_Background.png);">
+  <div class="row">
+    <div class="col-sm back">
+		<div id='calendar' style="margin-top:30px"></div></div>
 	</div>
 
 
