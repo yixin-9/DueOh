@@ -219,7 +219,7 @@ h1 {
 						<th> Submit Status </th>
 						<th> Submission Link </th>
 						<th> Done! </th>
-						<th id="">Remove</th></div></div></div>
+						<th id="">Remove</th>
 						
 					</tr>
 					
