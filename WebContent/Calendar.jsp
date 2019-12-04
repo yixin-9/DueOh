@@ -20,7 +20,7 @@
     
     
     <html lang='en'>
-  <head>
+<head>
     <meta charset='utf-8' />
 	
 	<link href='fullcalendar/packages/core/main.css' rel='stylesheet' />
@@ -40,13 +40,15 @@
 		var calendarEl = document.getElementById('calendar');
 
 		var calendar = new FullCalendar.Calendar(calendarEl, {
-			plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'list', 'rrule'],
+			plugins: [ 'interaction', 'dayGrid', 'timeGrid', 'rrule'],
 			header: {
 				left: 'prev,next today',
 				center: 'title',
 				right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
 			},
 		nextDayThreshold: '03:00:00',
+		eventBorderColor: '#000000',
+		eventColor: '#d86850',
 		editable: true,
 		events: [
 <%		for (Map.Entry<String, ArrayList<AssignmentData> > entry : classList.entrySet()) {
@@ -64,6 +66,7 @@
 	],
 		
 		eventClick: function(arg) {
+			//TODO: implemnt RemoveAssignment funcionality here.
 	        if (confirm('delete event?')) {
 	          arg.event.remove()
 	        }
@@ -73,34 +76,54 @@
 	  });
 	
 
-</script>
-<style>
+	</script>
 
-  body {
-    margin: 40px 10px;
-    padding: 0;
-    font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
-    font-size: 14px;
-  }
+	<style>
+		body {
+			margin: 40px 10px;
+			padding: 0;
+			font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+			font-size: 14px;
+			background-color: #ffb37d;
+		}
   
-  thead.fc-head {
-    background-color: #ED7F61;
-   }
-  tbody.fc-body {    
-    background-color: #fcf5f2;
-   }
+		thead.fc-head {
+			background-color: #fffff1;
+		}
+	
+		tbody.fc-body {    
+			background-color: #fffff1;
+		}
 
-  #calendar {
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  
+		#calendar {
+			max-width: 900px;
+			margin: 0 auto;
+		}
 
-</style>
+	</style>
 </head>
-<body>
 
-  <div id='calendar'></div>
+<body>
+	<div class="header">
+		<div>
+		<table>
+			<tr>
+				<td>
+					<a href="${pageContext.request.contextPath}/profile.jsp"><img class="logo" src="DueOh_logo.png" style="margin-top: 30px; width: 150px; height: 150px;" />
+				</td>
+				<!--
+				<td>
+					<img src="7fypsQy.gif"/ style="width: 150px; height: 150px; margin-left: 900px; margin-top: 35px; border-radius: 100px;">
+				</td>
+				-->
+			</tr>
+		</table>
+		</div>
+		<hr>
+		<h1></h1>
+		<div id='calendar' style="margin-top:30px"></div>
+	</div>
+
 
 </body>
 </html>
