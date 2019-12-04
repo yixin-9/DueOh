@@ -131,11 +131,11 @@ h1 {
 			window.location.assign("profile.jsp");			
 		}
 	}
-	function doneCheck(className, assignName, assignLink, submitStatus) {
+	function doneCheck(className, assignName, submitStatus) {
+		console.log(submitStatus);
 		var xhttp = new XMLHttpRequest();
 		xhttp.open("GET", "DoneAssign?className=" + className + "&assignName="
-				+ assignName + "&assignLink=" + assignLink + "&submitStatus="
-				+ submitStatus, false);
+				+ assignName + "&submitStatus=" + submitStatus, false);
 		xhttp.send();
 		window.location.assign("profile.jsp");
 	}
@@ -253,9 +253,7 @@ h1 {
 							<button style="border-radius: 4px; font-size: 12px; " type="submit"
 								onclick="doneCheck('<%=entry.getKey()%>', 
 							'<%=entry.getValue().get(i).getAssignmentName()%>',
-							'<%=entry.getValue().get(i).getAssignLink()%>',
 							'<%=entry.getValue().get(i).getSubmitStatus()%>')">Done!</button>
-
 						</td>
 						<div id = "myDIV"></div>
 							<td>

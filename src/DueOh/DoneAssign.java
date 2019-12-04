@@ -41,7 +41,6 @@ public class DoneAssign extends HttpServlet {
 		String username = (String) session.getAttribute("username");
 		String className = request.getParameter("className");
 		String assignmentName = request.getParameter("assignName");
-		String assignLink = request.getParameter("assignLink");
 		String done = request.getParameter("submitStatus");
 		int doneAssign = 1;
 
@@ -50,13 +49,12 @@ public class DoneAssign extends HttpServlet {
 		if (done.equals("Submitted!")) {
 			doneAssign = 0;
 		}
-
+		//System.out.println(session);
 		// to see what is being saved into database
 		System.out.println(username);
 		System.out.println(className);
 		System.out.println(assignmentName);
 		System.out.println(done);
-		System.out.println(assignLink);
 		System.out.println(doneAssign);
 
 		// Connect to database
@@ -69,8 +67,9 @@ public class DoneAssign extends HttpServlet {
 
 		// SQL Queries
 		String updateString = "UPDATE Assignment " + "SET SubmitStatus = ? "
-				+ "WHERE Username = ? AND ClassName = ? AND AssignmentName = ? AND AssignLink = ?";
+				+ "WHERE Username = ? AND ClassName = ? AND AssignmentName = ?";
 
+		System.out.println("Update String: " + updateString);
 		// update
 		try {
 			conn = DriverManager.getConnection(sql);
@@ -79,8 +78,8 @@ public class DoneAssign extends HttpServlet {
 			ps.setString(2, username);
 			ps.setString(3, className);
 			ps.setString(4, assignmentName);
-			ps.setString(5, assignLink);
-			ps.executeUpdate();
+			System.out.println(ps.executeUpdate());
+			System.out.println("Finish changing!");
 		} catch (SQLException sqle) {
 			System.out.println(sqle.getMessage());
 		} finally {
