@@ -21,6 +21,12 @@
 
 <link rel="stylesheet" href="login.css">
 <style>
+body {
+	margin: 0;
+	padding: 0;
+	position: relative;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+}
 #usernameMessage {
 	margin-left: 30.5%;
 }
@@ -45,8 +51,9 @@
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-dark p-4">
       <h4 class="text-white h4"> <a style="margin-left: 120px; margin-bottom: 10px; color: white;" href="${pageContext.request.contextPath}/profile.jsp">Back to Profile</a></h4>
-      <span class="text-muted"><a style="margin-left: 120px; margin-bottom: 10px; color: white;" href="${pageContext.request.contextPath}/Calendar.jsp">Calendar</a></span><h6></h6>
-      <a  style="margin-left: 120px; margin-bottom: 10px; color: white;" href="${pageContext.request.contextPath}/SignOut" id="signOut" >Sign Out</a> 
+      <span class="text-muted"><a style="margin-left: 120px; margin-bottom: 10px; font-size:15px; color: white;" href="${pageContext.request.contextPath}/Calendar.jsp">Calendar</a></span><h6></h6>
+           <a  style="margin-left: 120px; margin-bottom: 10px; color: white;font-size:15px;" href="${pageContext.request.contextPath}/Metrics.jsp" >Analytics</a><h6></h6>
+      <a  style="margin-left: 120px; margin-bottom: 10px; font-size:15px; color: white;" href="${pageContext.request.contextPath}/SignOut" id="signOut" >Sign Out</a> 
       
     </div>
   </div>
@@ -56,54 +63,55 @@
     </button>
 
   </nav>
-  
-<div class="container" style="background-size: 200%; background-image: url(DueOh_Background.png);">
-  <div class="row">
-  <div class="col-sm back">
-      
-    </div>
-    <div class="col-sm content">
-		<div class="form-content" >
+
+
+		<div class="form-content content" >
 			<form method="POST" action="AddAssignment">
 				<table>
 					<tr>
-					<p style="margin-left: -250px; margin-bottom: 10px; color: white;font-size: 20px;">
+					  <br><br>
+					<p style="margin-left: 500px; margin-bottom: 10px; color: white;font-size: 20px;">
 							<b>Add Your Assignment Here &#128521</b>
 					</p>
 					</tr>
 					<tr>
 						<td><input type="text" name="className"
 							placeholder="Class Name"
-							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 30px; margin-left: -280px; border-radius: 4px; border: 2px solid white;">
+							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 30px; margin-left: 500px; border-radius: 4px; border: 2px solid white;">
 						</td></tr>
 					<tr>
 						<td><input type="text" name="assignmentName"
 							placeholder="Assignment"
-							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 30px; margin-left: -280px; border-radius: 4px; border: 2px solid white;">
+							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 30px; margin-left: 500px; border-radius: 4px; border: 2px solid white;">
 						</td></tr>
 					<tr>
 						<%=assignExist%>
 					</tr>
 					<tr>
 						<td><input type="datetime-local" name="dueDate"
-							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 30px; margin-left: -280px; border-radius: 4px; border: 2px solid white;"
+							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 30px; margin-left: 500px; border-radius: 4px; border: 2px solid white;"
 						required></td>
 					</tr>
 					<tr>
 						<td><input type="text" name="assignLink"
 							placeholder="Assignment Link"
-							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 30px; margin-left: -280px; border-radius: 4px; border: 2px solid white;">
+							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 30px; margin-left: 500px; border-radius: 4px; border: 2px solid white;">
 						</td></tr>
 				</table>
 				<button class="button-small grey_dark rounded3"
 								type="submit"
-								style="position: relative; top: 50%; margin-top: 20px; display: inline-block; margin-left: -180px; border-radius: 5px; font-size: 16px;">
+								style="position: relative; top: 50%; margin-top: 20px; display: inline-block; margin-left: 500px; border-radius: 5px; font-size: 16px;">
 								Add Assignment</button>
 			</form>
 		</div>
 		
 	</div>
-    </div>
-  </div>
+   
+  <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+ 
 </body>
 </html>

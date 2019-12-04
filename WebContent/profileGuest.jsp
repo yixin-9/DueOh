@@ -21,14 +21,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>DueOh! Profile</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
+<title>DueOh! Guest</title>
 
 <style>
 body {
 	margin: 0;
 	padding: 0;
 	position: relative;
-	font-family: Helvetica;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 }
 
 .logo {
@@ -116,45 +120,56 @@ h1 {
 	text-align: center;
 }
 
+.content {
+	background-image: url("DueOh_Background.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+	height: 100vh;
+}
+
 </style>
 
 </head>
 <body>
 
 
-	<div class="header">
-		<table>
-			<tr>
-				<td><a href="${pageContext.request.contextPath}/Login.jsp"><img
-						class="logo" src="DueOh_logo2.jpg"
-						style="margin-top: 30px; width: 150px; height: 150px;" /></td>
-			</tr>
-		</table>
-	</div>
+	<nav class="navbar navbar-light bg-light">
+		<a class="navbar-brand"
+			href="${pageContext.request.contextPath}/Login.jsp"> <img
+			src="DueOh_logo3.png"
+			style="margin-top: 10px; margin-left: 75%; width: 180px; height: 180px;" />
+		</a>
+		<a class="nav-link active" style=" margin-top: 10px; margin-left: 350px; display: inline-block; color: grey; font-size: 20px;"href="${pageContext.request.contextPath}/Login.jsp">Login</a>
+		<a class="nav-link active" style=" margin-top: 10px; margin-left: -500px; margin-right: 150px; display: inline-block; color: grey; font-size: 20px;"href="${pageContext.request.contextPath}/Register.jsp"">Register</a>
+	</nav>
 
+<div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h4 class="text-white h4"> <a style="margin-left: 120px; margin-bottom: 10px; color: white;" href="${pageContext.request.contextPath}/Login.jsp">Please Login</a></h4>
+      <span class="text-muted"><a style="margin-left: 120px; margin-bottom: 10px; font-size:15px; color: white;" href="${pageContext.request.contextPath}/Register.jsp">Register</a></span>
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" style="margin-left: 130px;">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+ <h3 style="margin-right: 150px; margin-bottom: 10px; color: white;">Welcome, Guest</h3>
+  </nav>
 	<div class="content">
 		<div class="form-content">
-			<table>
-				<tr>
-					<td id="Welcome"><p style="margin-left: 600px;">
-							Welcome, Guest</p></td>
-				</tr>
-			</table>
-			<div id = "my-table">
-				<table>
-				
-				</table>
-			</div>
-			<form method="POST" action="AddAssignmentGuest.jsp">
-				<input class="button-small" type="submit" value="Add Assignment"
-					style="margin-left: 900px; border-radius: 8px; font-size: 12px; border-color: black;">
-			</form>
-			<form method="POST" action="Login.jsp">
-					<input class="button-small" type="submit" value="Login"
-						style="margin-left: 700px; border-radius: 8px; font-size: 12px; border-color: black;">
-				</form>
+			<br><br>
+			   <a  style="margin-left: 600px; margin-bottom: 30px; color: white; font-size:30px;" href="${pageContext.request.contextPath}/AddAssignmentGuest.jsp" >Add Assignment</a><h6></h6>
+   			   <a  style="margin-left: 660px; margin-bottom: 30px; color: white; font-size:30px;" href="${pageContext.request.contextPath}/Login.jsp" >Login</a><h6></h6>
+   			   <a  style="margin-left: 645px; margin-bottom: 30px; color: white; font-size:30px;" href="${pageContext.request.contextPath}/Register.jsp" >Register</a><h6></h6>
+  
 		</div>
 	</div>
-
+ <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+ 
 </body>
 </html>

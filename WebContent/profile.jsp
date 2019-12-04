@@ -33,7 +33,7 @@ body {
 	margin: 0;
 	padding: 0;
 	position: relative;
-	font-family: Helvetica;
+	font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 }
 
 .logo {
@@ -179,8 +179,9 @@ h1 {
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-dark p-4">
       <h4 class="text-white h4" style="margin-left: 120px; margin-bottom: 10px; color: white;"><%=username%></h4>
-       <a  style="margin-left: 120px; margin-bottom: 10px; color: white;" href="${pageContext.request.contextPath}/AddAssignment.jsp" >Add Assignment</a><h6></h6>
-      <span class="text-muted"><a style="margin-left: 120px; margin-bottom: 10px; color: white;" href="${pageContext.request.contextPath}/Calendar.jsp">Calendar</a></span><h6></h6>
+       <a  style="margin-left: 120px; margin-bottom: 10px; color: white;font-size:15px;" href="${pageContext.request.contextPath}/AddAssignment.jsp" >Add Assignment</a><h6></h6>
+      <span class="text-muted"><a style="margin-left: 120px; margin-bottom: 10px; font-size:15px; color: white;" href="${pageContext.request.contextPath}/Calendar.jsp">Calendar</a></span><h6></h6>
+       <a  style="margin-left: 120px; margin-bottom: 10px; color: white;font-size:15px;" href="${pageContext.request.contextPath}/Metrics.jsp" >Analytics</a><h6></h6>
       <a  style="margin-left: 120px; margin-bottom: 10px; color: white;" href="${pageContext.request.contextPath}/SignOut" id="signOut" >Sign Out</a> 
       
     </div>
@@ -217,21 +218,21 @@ h1 {
 					
 					<div id="accordion"> <div class="card" style="width: 75%;margin-left:10%" > <div class="card-header" id="headingOne" style="background-color: #353a40; ">
       					<h5 class="mb-0">
-       				 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color:white; font-size: 18px;">
+       				 <button class="btn btn-link" data-toggle="collapse" data-target="#collapse<%entry.getKey();%>" aria-expanded="true" aria-controls="collapseOne" style="color:white; font-size: 18px;">
           				<%=entry.getKey()%>
         			</button>
       				</h5></div>
 						
 					
 					
-					<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion"><div class="card-body" style="background-color: white; ">
+					<div id="collapse<%entry.getKey();%>" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion"><div class="card-body" style="background-color: white; ">
        					<table id="class"><tr>
        					<th> Assignment </th>
 						<th> Deadline </th>
 						<th> Submit Status </th>
 						<th> Submission Link </th>
 						<th> Done! </th>
-						<th id="">Remove</th></div></div></div>
+						<th id="">Remove</th>
 						
 					</tr>
 					
@@ -244,12 +245,12 @@ h1 {
 						<td><%=entry.getValue().get(i).getDueDate()%></td>
 						<td><%=entry.getValue().get(i).getSubmitStatus()%></td>
 						<td><a href=<%=entry.getValue().get(i).getAssignLink()%>
-							target="_blank" rel="noopener"> Click me to submit!</a></td>
+							target="_blank" rel="noopener" style=" color:grey; font-size: 15px; "> Click me to submit!</a></td>
 						<td>
 							<%
 								session.setAttribute("username", username);
 							%>
-							<button type="submit"
+							<button style="border-radius: 4px; font-size: 12px; " type="submit"
 								onclick="doneCheck('<%=entry.getKey()%>', 
 							'<%=entry.getValue().get(i).getAssignmentName()%>',
 							'<%=entry.getValue().get(i).getAssignLink()%>',
@@ -258,7 +259,7 @@ h1 {
 						</td>
 						<div id = "myDIV"></div>
 							<td>
-									<button type="submit"
+									<button style="border-radius: 4px; font-size: 12px; "type="submit"
 										onclick="sendAssign('<%=entry.getKey()%>',
 								'<%=entry.getValue().get(i).getAssignmentName()%>')">Remove</button>
 							</td>
