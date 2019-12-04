@@ -5,6 +5,10 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+	crossorigin="anonymous">
 <link rel="stylesheet" href="login.css">
 <title>DueOh! Login</title>
 <style>
@@ -29,18 +33,24 @@
 
 <body>
 
-	<div class="header">
-		<table>
-			<tr>
-				<td><a href="${pageContext.request.contextPath}/Login.jsp"><img
-						class="logo" src="DueOh_logo2.jpg"
-						style="margin-top: 30px; width: 150px; height: 150px;" /></a></td>
-				<!-- 			<td><img src="7fypsQy.gif"/ style="width: 150px; height: 150px; margin-left: 900px; margin-top: 35px; border-radius: 100px;"></td> -->
-			</tr>
-		</table>
-	</div>
+	<nav class="navbar navbar-light bg-light">
+		<a class="navbar-brand"
+			href="${pageContext.request.contextPath}/Login.jsp"> <img
+			src="DueOh_logo2.jpg"
+			style="margin-top: 10px; margin-left: 75%; width: 180px; height: 180px;" />
+		</a>
+		<a class="nav-link active" style=" margin-top: 10px; margin-left: 350px; display: inline-block; color: grey; font-size: 20px;"href="${pageContext.request.contextPath}/profile.jsp">Guest</a>
+		<a class="nav-link active" style=" margin-top: 10px; margin-left: -500px; margin-right: 150px; display: inline-block; color: grey; font-size: 20px;"href="${pageContext.request.contextPath}/Register.jsp"">Register</a>
+	</nav>
 
-	<div class="content">
+
+<div class="container" style="background-image: url(bg-01.jpg);">
+  <div class="row">
+    <div class="col-sm back">
+      
+    </div>
+    <div class="col-sm offset-md-3 content">
+      
 		<div class="form-content">
 
 			<form method="POST" action="Login">
@@ -52,38 +62,46 @@
 					</tr>
 					<tr>
 						<p
-							style="margin-top: -30px; margin-left: 310px; margin-bottom: -15px; color: white;">
+							style="margin-left: 45px; margin-bottom: 10px; color: white;font-size: 35px;">
+							Login 
+						</p>
+						<p
+							style="margin-left: -50px; margin-bottom: 10px; color: white;font-size: 20px;">
 							<b>Hello! Let's do our homework &#9996; </b>
 						</p>
 					</tr>
 					<tr>
-						<td><input type="text" name="username" placeholder="username"
-							style="position: relative; font-size: 20px; top: 50%; left: 100%; margin-top: 20px; width: 400px; height: 30px; margin-left: -50px; border-radius: 5px; border: 2px solid white;">
+					
+						<td><input type="text" name="username" placeholder="Username" class="form-control"
+							style="position: relative; font-size: 20px; top: 50%; margin-top: 25px; width: 350px; height: 30px; margin-left: -80px; border-radius: 4px; border: 2px solid white;">
 						</td>
 					</tr>
 					<tr>
 						<td><input type="password" name="password"
-							placeholder="password"
-							style="position: relative; font-size: 20px; top: 50%; left: 100%; margin-top: 20px; width: 400px; height: 30px; margin-left: -50px; border-radius: 5px; border: 2px solid white;">
+							placeholder="Password" class="form-control"
+							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 30px; margin-left: -80px; border-radius: 4px; border: 2px solid white;">
 						</td>
 					</tr>
 
 					<tr>
+					
 						<td><button class="button-small grey_dark rounded3"
 								type="submit"
-								style="position: relative; top: 50%; left: 100%; margin-top: 20px; display: inline-block; margin-left: 110px; border-radius: 8px; font-size: 16px;">
+								style="position: relative; top: 50%; margin-top: 20px; display: inline-block; margin-left: 50px; border-radius: 5px; font-size: 16px;">
 								Login</button></td>
 					</tr>
 					<tr>
-						<td><a
-							style="position: relative; top: 50%; left: 100%; margin-top: 10px; margin-left: 200px; display: inline-block; font-color: black"
-							href="${pageContext.request.contextPath}/Register.jsp"><b>Create
-									new account</b></a>
-						<!-- </button> --></td>
+						<td><a class="nav-link active" 
+							style="position: relative; top: 50%; margin-top: 10px; margin-left: 40px; display: inline-block; color: white;"
+							href="${pageContext.request.contextPath}/Register.jsp"><b>Sign Up</b></a> </td>
 					</tr>
 				</table>
 			</form>
 		</div>
-	</div>
+	
+    </div>
+    
+  </div>
+</div>
 </body>
 </html>
