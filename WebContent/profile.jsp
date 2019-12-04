@@ -91,9 +91,9 @@ h1 {
 #class {
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	border-collapse: collapse;
-	width: 70%;
+	width: 80%;
 	background: white;
-	margin-left: 10%;
+	margin-left: 8%;
 }
 
 #class td, #class th {
@@ -171,47 +171,58 @@ h1 {
 			src="DueOh_logo3.png"
 			style="margin-top: 10px; margin-left: 75%; width: 180px; height: 180px;" />
 		</a>
-		<a class="nav-link active" style=" margin-top: 10px; margin-left: 350px; display: inline-block; color: grey; font-size: 20px;"href="${pageContext.request.contextPath}/profile.jsp">Guest</a>
-		<a class="nav-link active" style=" margin-top: 10px; margin-left: -500px; margin-right: 150px; display: inline-block; color: grey; font-size: 20px;"href="${pageContext.request.contextPath}/Register.jsp"">Register</a>
+		<a class="nav-link active" style=" margin-top: 10px; margin-left: -500px; margin-right: 150px; display: inline-block; color: grey; font-size: 20px;"href="${pageContext.request.contextPath}/profile.jsp"">Profile</a>
 	</nav>
 
+ <div class="pos-f-t">
+  <div class="collapse" id="navbarToggleExternalContent">
+    <div class="bg-dark p-4">
+      <h4 class="text-white h4" style="margin-left: 120px; margin-bottom: 10px; color: white;"><%=username%></h4>
+       <a  style="margin-left: 120px; margin-bottom: 10px; color: white;" href="${pageContext.request.contextPath}/AddAssignment.jsp" >Add Assignment</a><h6></h6>
+      <span class="text-muted"><a style="margin-left: 120px; margin-bottom: 10px; color: white;" href="${pageContext.request.contextPath}/Calendar.jsp">Calendar</a></span><h6></h6>
+      <a  style="margin-left: 120px; margin-bottom: 10px; color: white;" href="${pageContext.request.contextPath}/SignOut" id="signOut" >Sign Out</a> 
+      
+    </div>
+  </div>
+  <nav class="navbar navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" style="margin-left: 130px;">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <h3 style="margin-right: 150px; margin-bottom: 10px; color: white;">Welcome,<%=username%></h3>
+  </nav>
+</div>
 
-
-	<div class="content">
-		<div class="form-content">
-			<table>
-				<tr>
-					<td id = "Welcom"><p style="margin-left: 150px;">
-							Welcome,<%=username%></p></td>
-					<td>
-						<form method="GET" action="Login.jsp">
-							<td><input class="button-small" type="submit"
-								value="Sign Out"
-								style="position: relative; top: 50%; left: 100%; margin-top: -5px; display: inline-block; margin-left: 2px; border-radius: 8px; font-size: 12px; border-color: black; height: 38px;"></td>
-						</form>
-					</td>
-				</tr>
-		</table>
+	
+		<div class="form-content content">
+			<br>
 			<div>
-				<a href="${pageContext.request.contextPath}/Calendar.jsp">Click
-					here to see calendar!</a>
 				<%
 					for (Map.Entry<String, ArrayList<AssignmentData>> entry : classList.entrySet()) {
 				%>
-				<table></table>
-				<table id="class">
-					<tr>
-						<th style="width: 40%;"><%=entry.getKey()%></th>
-						<th></th>
+		
+				
+				
+					
+					<div id="accordion"> <div class="card" style="width: 75%;margin-left:10%" > <div class="card-header" id="headingOne" style="background-color: #353a40; ">
+      					<h5 class="mb-0">
+       				 <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="color:white; font-size: 18px;">
+          				<%=entry.getKey()%>
+        			</button>
+      				</h5></div>
+						
+					
+					
+					<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion"><div class="card-body" style="background-color: white; ">
+       					<table id="class"><tr>
+       					<th> Assignment </th>
+						<th> Deadline </th>
+						<th> Submit Status </th>
+						<th> Submission Link </th>
+						<th> Done! </th>
+						<th id="">Remove</th></div></div></div>
+						
 					</tr>
-					<tr>
-						<th>Assignment</th>
-						<th>Deadline</th>
-						<th>Submit Status</th>
-						<th>Submission Link</th>
-						<th>Done!</th>
-						<th id="">Remove</th>
-					</tr>
+					
 					<%
 						for (int i = 0; i < entry.getValue().size(); i++) {
 					%>
@@ -240,26 +251,29 @@ h1 {
 								'<%=entry.getValue().get(i).getAssignmentName()%>')">Remove</button>
 							</td>
 					</tr>
-
+</table>
 					<%
 						}
 					%>
-
-				</table>
+</div></div></div></div>
 				<br> <br>
 				<%
 					}
 				%>
 			</div>
-			<form method="POST" action="AddAssignment.jsp">
+			<!-- <form method="POST" action="AddAssignment.jsp">
 				<input class="button-small" type="submit" value="Add Assignment"
 					style="margin-left: 900px; border-radius: 8px; font-size: 12px; border-color: black;">
-			</form>
-			<button class="button-small" onclick="myFunction()"
-				style="margin-left: 900px; border-radius: 8px; font-size: 12px; border-color: black;">Remove
-				Assignment</button>
+			</form> -->
 		</div>
 	</div>
+
+ <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+ 
 
 </body>
 </html>
