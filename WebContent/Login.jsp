@@ -12,7 +12,9 @@
 <link rel="stylesheet" href="login.css">
 <title>DueOh! Login</title>
 <style>
-
+body{
+font-family:sans-serif;
+}
 .error{
 color:grey;
 margin-left: 5.5%;

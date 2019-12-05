@@ -94,11 +94,11 @@ public class GUIShapeThreads extends JFrame {
 					difference %= 60000;
 					int seconds = (int) (difference / 1000);
 					if (days <= 0) {
-						setText(" Hurry! <" + this.classname + "> <" + this.hw + "> is due in " + hours + " hours " + minutes + " minutes " + seconds + " seconds!");
+						setText(this.classname + " " + this.hw + " is due in " + hours + " hours " + minutes + " minutes " + seconds + " seconds!");
 						if (hours <= 0) {
-							setText(" Hurry! <" + this.classname + "> <" + this.hw + "> is due in " + minutes + " minutes " + seconds + " seconds!");
+							setText(this.classname + " " + this.hw + " is due in " + minutes + " minutes " + seconds + " seconds!");
 							if (minutes <= 0) {
-								setText(" Hurry! <" + this.classname + "> <" + this.hw + "> is due in " + seconds + " seconds!");
+								setText( this.classname + " " + this.hw + " is due in " + seconds + " seconds!");
 							}//if
 						}//if
 					}//if

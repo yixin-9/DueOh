@@ -11,6 +11,9 @@
 <link rel="stylesheet" href="login.css">
 <title>DueOh! Register</title>
 <style>
+body{
+font-family:sans-serif;
+}
 .error{
 color:grey;
 
