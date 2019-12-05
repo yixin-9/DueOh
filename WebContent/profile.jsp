@@ -198,7 +198,7 @@ h1 {
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" style="margin-left: 130px;">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <h3 style="margin-right: 120px; margin-bottom: 10px; color: white;">Welcome,<%=username%></h3>
+    <h3 style="margin-right: 120px; margin-bottom: 10px; color: white;">Welcome, <%=username%></h3>
   </nav>
 </div>
 	

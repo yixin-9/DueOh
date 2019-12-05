@@ -188,8 +188,7 @@ h1 {
 				aria-label="Toggle navigation" style="margin-left: 130px;">
 				<span class="navbar-toggler-icon"></span>
 			</button>
-			<h3 style="margin-right: 150px; margin-bottom: 10px; color: white;">Welcome,
-				Guest</h3>
+			<h3 style="margin-right: 150px; margin-bottom: 10px; color: white;">Welcome, Guest</h3>
 		</nav>
 
 		<div class="content">

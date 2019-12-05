@@ -151,7 +151,7 @@ tbody.fc-body {
 
 
 			<div id='calendar' style="margin-top: 30px"></div>
-			<br>
+			
 		</div>
 	</div>
 </div>
