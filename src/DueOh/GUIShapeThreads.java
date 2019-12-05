@@ -42,7 +42,7 @@ public class GUIShapeThreads extends JFrame {
 		Thread t = new Thread(timeLeft);
 		t.start();
 		setVisible(true);
-//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 	}
 
 	class Label extends JLabel implements Runnable {
