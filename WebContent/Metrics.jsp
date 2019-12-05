@@ -7,7 +7,7 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Balkan Dashboard</title>
+	<title>Analytics</title>
 
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css">
@@ -36,7 +36,7 @@
 
 		<nav class="navbar navbar-light bg-light">
 			<a class="navbar-brand"
-				href="${pageContext.request.contextPath}/Login.jsp"> <img
+				href="${pageContext.request.contextPath}/profile.jsp"> <img
 				src="DueOh_logo3.png"
 				style="margin-top: 10px; margin-left: 75%; width: 180px; height: 180px;" />
 			</a> <a class="nav-link active"
