@@ -1,5 +1,6 @@
 package DueOh;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -22,43 +23,60 @@ import javax.swing.JTextField;
 public class GUIShapeThreads extends JFrame {
 	public static final long serialVersionUID = 1;
 	private Label timeLeft;
-	private Label description;
 	private long start;
 	public GUIShapeThreads(String assignment, long time) {
 		super("GUI Shape Threads");
-		setSize(200, 200);
+		setSize(400, 200);
 		setLocation(850, 50);
 		setTitle(assignment);
+		this.getContentPane().setBackground(new Color(255, 179, 125));
 		start = time;
-//		setLayout(null);
-		
-		description = new Label();
-//		description.setBounds(50, 50, 50, 50);
-		description.setText("Your " + this.getTitle() + "is due in: ");
-		add(description);
 		
 		timeLeft = new Label();
 		timeLeft.setTimeLeft(start);
-//		timeLeft.setBounds(50, 50, 50, 50);
-//		ta.setFont(new Font(Font.MONOSPACED, Font.BOLD, 12));
+		timeLeft.setBounds(25, 50, 200, 100);
+		timeLeft.setHW(assignment);
 		add(timeLeft);
-		setVisible(true);
+		
 		Thread t = new Thread(timeLeft);
 		t.start();
-		
-		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setVisible(true);
+//		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
 	class Label extends JLabel implements Runnable {
 		public static final long serialVersionUID = 1;
 		private long time;
+		private String hw;
 		public void setTimeLeft(long input) {
 			time = input;
+		}
+		
+		public void setHW(String name) {
+			this.hw = name;
 		}
 		public void run() {
 			try {
 				while (true) {
+					Font labelFont = this.getFont();
+					String labelText = this.getText();
+
+					int stringWidth = this.getFontMetrics(labelFont).stringWidth(labelText);
+					int componentWidth = this.getWidth();
+
+					// Find out how much the font can grow in width.
+					double widthRatio = (double)componentWidth / (double)stringWidth;
+
+					int newFontSize = (int)(labelFont.getSize() * widthRatio);
+					int componentHeight = this.getHeight();
+
+					// Pick a new font size so it will not be larger than the height of label.
+					int fontSizeToUse = Math.min(newFontSize, componentHeight);
+
+					// Set the label's font size to the newly determined size.
+					this.setFont(new Font(labelFont.getName(), Font.PLAIN, fontSizeToUse));
+					
+					
 					long difference = time - System.currentTimeMillis();
 					int days = (int) (difference / 86400000);
 					difference %= 86400000;
@@ -68,15 +86,15 @@ public class GUIShapeThreads extends JFrame {
 					difference %= 60000;
 					int seconds = (int) (difference / 1000);
 					if (days <= 0) {
-						setText(hours + " hours " + minutes + " minutes " + seconds + " seconds left.");
+						setText(" Hurry! " + this.hw + " is due in " + hours + " hours " + minutes + " minutes " + seconds + " seconds!");
 						if (hours <= 0) {
-							setText(minutes + " minutes " + seconds + " seconds left.");
+							setText(" Hurry! " + this.hw + " is due in " + minutes + " minutes " + seconds + " seconds!");
 							if (minutes <= 0) {
-								setText(seconds + " seconds left.");
+								setText(" Hurry! " + this.hw + " is due in " + seconds + " seconds!");
 							}
 						}
 					} else {
-						setText(days + " days " + hours + " hours " + minutes + " minutes " + seconds + " seconds left.");
+						setText(" Hurry! " + this.hw + " is due in " + days + " days " + hours + " hours " + minutes + " minutes " + seconds + " seconds!");
 					}
 					Thread.sleep(1000);
 				}

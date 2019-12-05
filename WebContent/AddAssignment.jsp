@@ -77,25 +77,25 @@ body {
 					<tr>
 						<td><input type="text" name="className"
 							placeholder="Class Name"
-							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 30px; margin-left: 500px; border-radius: 4px; border: 2px solid white;">
+							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 40px; margin-left: 500px; border-radius: 4px; border: 2px solid white;">
 						</td></tr>
 					<tr>
 						<td><input type="text" name="assignmentName"
 							placeholder="Assignment"
-							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 30px; margin-left: 500px; border-radius: 4px; border: 2px solid white;">
+							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 40px; margin-left: 500px; border-radius: 4px; border: 2px solid white;">
 						</td></tr>
 					<tr>
 						<%=assignExist%>
 					</tr>
 					<tr>
 						<td><input type="datetime-local" name="dueDate"
-							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 30px; margin-left: 500px; border-radius: 4px; border: 2px solid white;"
+							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 40px; margin-left: 500px; border-radius: 4px; border: 2px solid white;"
 						required></td>
 					</tr>
 					<tr>
 						<td><input type="text" name="assignLink"
 							placeholder="Assignment Link"
-							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 30px; margin-left: 500px; border-radius: 4px; border: 2px solid white;">
+							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 40px; margin-left: 500px; border-radius: 4px; border: 2px solid white;">
 						</td></tr>
 				</table>
 				<button class="button-small grey_dark rounded3"
