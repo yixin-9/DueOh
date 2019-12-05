@@ -3,19 +3,19 @@
  ## Project Proposal:
  ### Our main idea encompasses the combination of all the homework websites, such as Den Viterbi, Gradescope, Blackboard, and Vocareum into one. This website will contain all the deadlines that individual students have catered to each student’s schedule. It will also have the option to remind users when a deadline is coming up, a viewable calendar with assignment, and analytics. Links will also be available to redirect users to respective homework sites that the student desires.
 
-#### Home Page/ Login Page
+### Home Page/ Login Page
 ![Image of Login](https://github.com/yixin-9/DueOh/blob/master/Screenshots/Login.png)
-#### Register Page (including Error Messages)
+### Register Page (including Error Messages)
 ![Image of Register](https://github.com/yixin-9/DueOh/blob/master/Screenshots/RegisterPage.png)
-#### Profile Page
+### Profile Page
 ![Image of Profile](https://github.com/yixin-9/DueOh/blob/master/Screenshots/Profile_.png)
-#### GUI Homework CountDown
+### GUI Homework CountDown
 ![Image of HwCountDown](https://github.com/yixin-9/DueOh/blob/master/Screenshots/GUI.png)
-#### Calendar
+### Calendar
 ![Image of Calendar](https://github.com/yixin-9/DueOh/blob/master/Screenshots/Calendar_.png)
 ![Image of Week](https://github.com/yixin-9/DueOh/blob/master/Screenshots/Week.png)
-#### Analytics
+### Analytics
 ![Image of Analytics](https://github.com/yixin-9/DueOh/blob/master/Screenshots/Analytics.png)
-#### Guest Page
+### Guest Page
 ![Image of Guest](https://github.com/yixin-9/DueOh/blob/master/Screenshots/Guest_.png)
 
