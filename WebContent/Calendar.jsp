@@ -52,8 +52,8 @@
 				right: 'dayGridMonth,timeGridWeek,timeGridDay,listMonth'
 			},
 		nextDayThreshold: '03:00:00',
-		eventBorderColor: '#000000',
-		eventColor: '#d86850',
+		
+		eventColor: '#f2937e',
 		editable: true,
 		events: [
 <%for (Map.Entry<String, ArrayList<AssignmentData>> entry : classList.entrySet()) {
@@ -83,7 +83,7 @@
 <style>
 body {
 	font-family: "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
-	font-size: 14px;
+	font-size: 16px;
 	background-color: white;
 }
 
