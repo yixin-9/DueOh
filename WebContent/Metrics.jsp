@@ -24,6 +24,7 @@
 			background-color: white;
 		}
 		.content {
+		
 	background-image: url("DueOh_Background.png");
 	height: 100vh;
 }

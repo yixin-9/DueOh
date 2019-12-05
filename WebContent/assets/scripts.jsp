@@ -66,21 +66,17 @@ var colorPalette = ['#00D8B6','#008FFB',  '#FEB019', '#FF4560', '#775DD0']
 
 
 
-
 var mygroups = _.groupBy([
 <%		for (Map.Entry<String, ArrayList<AssignmentData> > entry : classList.entrySet()) {
 			mapSize--;
 			for (int i = 0; i < entry.getValue().size(); i++) {%>
-			
 				'<%= entry.getValue().get(i).getDueDate()%>',
-
 <% 			}%>
 <%		}%>
 
 ], function (date) {
-	return moment(date).startOf('day').format();
+	return moment(date).format('YYYY-MM-DD');
 });
-
 
 
 
@@ -88,9 +84,11 @@ var mygroups = _.groupBy([
 var optionsBar = {
   chart: {
     type: 'bar',
-    height: 380,
+    height: 297,
     width: '100%',
     stacked: true,
+    fontFamily: "Gill Sans, Gill Sans MT, Calibri, sans-serif",
+    
   },
   plotOptions: {
     bar: {
@@ -106,7 +104,7 @@ var optionsBar = {
 			mapSize--;
 			for (int i = 0; i < entry.getValue().size(); i++) {%>
 			
-				['<%= entry.getValue().get(i).getDueDate()%>', 1],
+				mygroups["<%= entry.getValue().get(i).getDueDateJS()%>"].length,
 <% 			}%>
 <%		}%>
 
@@ -115,8 +113,17 @@ var optionsBar = {
   }],
   xaxis: {
   	type: "datetime",
+  	categories: [
+  	<%		for (Map.Entry<String, ArrayList<AssignmentData> > entry : classList.entrySet()) {
+			mapSize--;
+			for (int i = 0; i < entry.getValue().size(); i++) {%>
+				'<%= entry.getValue().get(i).getDueDate()%>',
+<% 			}%>
+<%		}%>
+  	],
 
     labels: {
+    	format: 'MM/dd',
       show: true
     },
     axisBorder: {
@@ -136,11 +143,14 @@ var optionsBar = {
     labels: {
       style: {
         color: '#78909c'
-      }
+      },
+      formatter: 
+      	(value) => { return parseFloat(value).toFixed() },
+      
     }
   },
   title: {
-    text: 'Assignments This Month',
+    text: 'Assignments Due This Month:',
     align: 'left',
     style: {
       fontSize: '18px'
@@ -155,8 +165,10 @@ chartBar.render();
 
 var optionDonut = {
   chart: {
+  	  fontFamily: "Gill Sans, Gill Sans MT, Calibri, sans-serif",
       type: 'donut',
-      width: '100%'
+      height: 285
+      
   },
   dataLabels: {
     enabled: false,
@@ -164,7 +176,7 @@ var optionDonut = {
   plotOptions: {
     pie: {
       donut: {
-        size: '75%',
+        size: '50%',
       },
       offsetY: 20,
     },
@@ -174,7 +186,7 @@ var optionDonut = {
   },
   colors: colorPalette,
   title: {
-    text: 'Classes',
+    text: 'Your Classes:',
     style: {
       fontSize: '18px'
     }
@@ -221,8 +233,6 @@ function trigoSeries(cnt, strength) {
 
   return data;
 }
-
-
 
 
 

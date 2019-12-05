@@ -1,6 +1,7 @@
 package DueOh;
 
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 public class AssignmentData {
 	private String assignmentName;
@@ -31,6 +32,11 @@ public class AssignmentData {
 
 	public Timestamp getDueDate() {
 		return dueDate;
+	}// getDueDate
+	
+	public String getDueDateJS() {
+		String s = new SimpleDateFormat("yyyy-MM-dd").format(dueDate);
+		return s;
 	}// getDueDate
 
 	public void setDueDate(Timestamp dueDate) {
