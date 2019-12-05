@@ -75,7 +75,8 @@
 
 
 	<div id="wrapper">
-
+	<br>
+<div style="margin-left: 680px; margin-bottom: 10px; color: white; font-size:25px; ">Analytics</div>
 		<div class="content-area">
 			<div class="container-fluid">
 				<div class="main">
