@@ -116,7 +116,7 @@ tbody.fc-body {
 				src="DueOh_logo3.png"
 				style="margin-top: 10px; margin-left: 75%; width: 180px; height: 180px;" />
 			</a> <a class="nav-link active"
-				style="margin-top: 10px; margin-left: -500px; margin-right: 150px; display: inline-block; color: grey; font-size: 20px;"
+				style="font-family: sans-serif; margin-top: 10px; margin-left: -500px; margin-right: 150px; display: inline-block; color: grey; font-size: 20px;"
 				href="${pageContext.request.contextPath}/profile.jsp">Profile</a>
 		</nav>
 <div class="content">

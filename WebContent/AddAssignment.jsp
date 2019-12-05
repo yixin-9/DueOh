@@ -44,7 +44,7 @@ body {
 			src="DueOh_logo3.png"
 			style="margin-top: 10px; margin-left: 75%; width: 180px; height: 180px;" />
 		</a>
-			<a class="nav-link active" style=" margin-top: 10px; margin-left: -500px; margin-right: 150px; display: inline-block; color: grey; font-size: 20px;"href="${pageContext.request.contextPath}/profile.jsp"">Profile</a>
+			<a class="nav-link active" style="font-family: sans-serif; margin-top: 10px; margin-left: -500px; margin-right: 150px; display: inline-block; color: grey; font-size: 20px;"href="${pageContext.request.contextPath}/profile.jsp"">Profile</a>
 	</nav>
 	
 	<div class="pos-f-t">
@@ -77,12 +77,12 @@ body {
 					<tr>
 						<td><input type="text" name="className"
 							placeholder="Class Name"
-							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 40px; margin-left: 500px; border-radius: 4px; border: 2px solid white;">
+							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 40px; margin-left: 500px; border-radius: 4px; border: 2px solid white;"required>
 						</td></tr>
 					<tr>
 						<td><input type="text" name="assignmentName"
 							placeholder="Assignment"
-							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 40px; margin-left: 500px; border-radius: 4px; border: 2px solid white;">
+							style="position: relative; font-size: 20px; top: 50%;  margin-top: 20px; width: 350px; height: 40px; margin-left: 500px; border-radius: 4px; border: 2px solid white;"required>
 						</td></tr>
 					<tr>
 						<%=assignExist%>
