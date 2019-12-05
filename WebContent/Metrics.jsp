@@ -43,23 +43,21 @@
 				href="${pageContext.request.contextPath}/profile.jsp">Profile</a>
 		</nav>
 <div class="content">
-<div class="content">
 		<div class="pos-f-t">
 			<div class="collapse" id="navbarToggleExternalContent">
 				<div class="bg-dark p-4">
 					
-						
-					<a style="margin-left: 120px; margin-bottom: 10px; font-size:15px; color: white;"
-						href="${pageContext.request.contextPath}/AddAssignment.jsp">Add
-						Assignment</a>
+					<h4 class="text-white h4">	
+					<a style="margin-left: 130px; margin-bottom: 10px; color: white;"
+						href="${pageContext.request.contextPath}/profile.jsp">Back to Profile</a></h4>
 					<h6></h6>
 					<span class="text-muted"><a
-						style="margin-left: 120px; margin-bottom: 10px; font-size:15px;color: white;"
-						href="${pageContext.request.contextPath}/profile.jsp">Profile</a></span>
+						style="margin-left: 130px; margin-bottom: 10px; font-size:18px;color: white;"
+						href="${pageContext.request.contextPath}/AddAssignment.jsp">Add Assignment</a></span>
 					<h6></h6>
-					     <a  style="margin-left: 120px; margin-bottom: 10px; color: white;font-size:15px;" href="${pageContext.request.contextPath}/Calendar.jsp" >Calendar</a><h6></h6>
+					     <a  style="margin-left: 130px; margin-bottom: 10px; color: white;font-size:18px;" href="${pageContext.request.contextPath}/Calendar.jsp" >Calendar</a><h6></h6>
     
-					<a style="margin-left: 120px; margin-bottom: 10px; font-size:15px; color: white;"
+					<a style="margin-left: 130px; margin-bottom: 10px; font-size:18px; color: white;"
 						href="${pageContext.request.contextPath}/SignOut" id="signOut">Sign
 						Out</a>
 

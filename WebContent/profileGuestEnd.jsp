@@ -86,9 +86,9 @@ h1 {
 #class {
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	border-collapse: collapse;
-	width: 80%;
+	width: 100%;
 	background: white;
-	margin-left: 8%;
+	
 }
 
 #class td, #class th {
@@ -96,10 +96,12 @@ h1 {
 	padding: 8px;
 }
 
-#class tr:nth-child(even) {
+/* #class tr:nth-child(even) {
 	background-color: #f2f2f2;
 }
-
+#class tr:nth-child(odd) {
+	background-color: #f2f2f2;
+} */
 #class tr:hover {
 	background-color: #ddd;
 }
@@ -108,10 +110,9 @@ h1 {
 	padding-top: 12px;
 	padding-bottom: 12px;
 	text-align: left;
-	background-color: #f7a46b;
-	color: white;
+	background-color: #f2f2f2;
+	color: black;
 }
-
 
 
 .content {
@@ -171,12 +172,12 @@ h1 {
 		<div class="collapse" id="navbarToggleExternalContent">
 			<div class="bg-dark p-4">
 				<h4 class="text-white h4">
-					<a style="margin-left: 120px; margin-bottom: 10px; color: white;"
+					<a style="margin-left: 130px; margin-bottom: 10px; color: white;"
 						href="${pageContext.request.contextPath}/Login.jsp">Please
 						Login</a>
 				</h4>
 				<span class="text-muted"><a
-					style="margin-left: 120px; margin-bottom: 10px; font-size:15px; color: white;"
+					style="margin-left: 130px; margin-bottom: 10px; font-size:15px; color: white;font-size: 20px;"
 					href="${pageContext.request.contextPath}/Register.jsp">Register</a></span>
 			</div>
 		</div>
@@ -229,7 +230,7 @@ h1 {
 						
 			
 			</div>
-			
+			</div>
 		</div>
 		 <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

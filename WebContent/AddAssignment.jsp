@@ -50,10 +50,10 @@ body {
 	<div class="pos-f-t">
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-dark p-4">
-      <h4 class="text-white h4"> <a style="margin-left: 120px; margin-bottom: 10px; color: white;" href="${pageContext.request.contextPath}/profile.jsp">Back to Profile</a></h4>
-      <span class="text-muted"><a style="margin-left: 120px; margin-bottom: 10px; font-size:15px; color: white;" href="${pageContext.request.contextPath}/Calendar.jsp">Calendar</a></span><h6></h6>
-           <a  style="margin-left: 120px; margin-bottom: 10px; color: white;font-size:15px;" href="${pageContext.request.contextPath}/Metrics.jsp" >Analytics</a><h6></h6>
-      <a  style="margin-left: 120px; margin-bottom: 10px; font-size:15px; color: white;" href="${pageContext.request.contextPath}/SignOut" id="signOut" >Sign Out</a> 
+      <h4 class="text-white h4"> <a style="margin-left: 130px; margin-bottom: 10px; color: white;" href="${pageContext.request.contextPath}/profile.jsp">Back to Profile</a></h4>
+      <span class="text-muted"><a style="margin-left: 130px; margin-bottom: 10px; font-size:18px; color: white;" href="${pageContext.request.contextPath}/Calendar.jsp">Calendar</a></span><h6></h6>
+           <a  style="margin-left: 130px; margin-bottom: 10px; color: white;font-size:18px;" href="${pageContext.request.contextPath}/Metrics.jsp" >Analytics</a><h6></h6>
+      <a  style="margin-left: 130px; margin-bottom: 10px; font-size:18px; color: white;" href="${pageContext.request.contextPath}/SignOut" id="signOut" >Sign Out</a> 
       
     </div>
   </div>

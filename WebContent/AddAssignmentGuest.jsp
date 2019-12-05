@@ -52,8 +52,8 @@ body {
 	<div class="pos-f-t">
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-dark p-4">
-      <h4 class="text-white h4"> <a style="margin-left: 120px; margin-bottom: 10px; color: white;" href="${pageContext.request.contextPath}/Login.jsp">Please Login</a></h4>
-      <span class="text-muted"><a style="margin-left: 120px; margin-bottom: 10px; font-size:15px; color: white;" href="${pageContext.request.contextPath}/Register.jsp">Register</a></span>
+      <h4 class="text-white h4"> <a style="margin-left: 130px; margin-bottom: 10px; color: white;" href="${pageContext.request.contextPath}/Login.jsp">Please Login</a></h4>
+      <span class="text-muted"><a style="margin-left: 130px; margin-bottom: 10px; font-size:18px; color: white;" href="${pageContext.request.contextPath}/Register.jsp">Register</a></span>
     
     </div>
   </div>

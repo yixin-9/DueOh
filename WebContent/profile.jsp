@@ -91,9 +91,9 @@ h1 {
 #class {
 	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 	border-collapse: collapse;
-	width: 80%;
+	width: 100%;
 	background: white;
-	margin-left: 8%;
+	
 }
 
 #class td, #class th {
@@ -101,10 +101,12 @@ h1 {
 	padding: 8px;
 }
 
-#class tr:nth-child(even) {
+/* #class tr:nth-child(even) {
 	background-color: #f2f2f2;
 }
-
+#class tr:nth-child(odd) {
+	background-color: #f2f2f2;
+} */
 #class tr:hover {
 	background-color: #ddd;
 }
@@ -113,8 +115,8 @@ h1 {
 	padding-top: 12px;
 	padding-bottom: 12px;
 	text-align: left;
-	background-color: #f7a46b;
-	color: white;
+	background-color: #f2f2f2;
+	color: black;
 }
 </style>
 
@@ -175,14 +177,20 @@ h1 {
 		<a class="nav-link active" style=" margin-top: 10px; margin-left: -500px; margin-right: 150px; display: inline-block; color: grey; font-size: 20px;"href="${pageContext.request.contextPath}/profile.jsp"">Profile</a>
 	</nav>
 
+
+<!-- <div class="container">
+  <div class="row">
+
+    <div class="col-sm content"> -->
+      
  <div class="pos-f-t">
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-dark p-4">
-      <h4 class="text-white h4" style="margin-left: 120px; margin-bottom: 10px; color: white;"><%=username%></h4>
-       <a  style="margin-left: 120px; margin-bottom: 10px; color: white;font-size:15px;" href="${pageContext.request.contextPath}/AddAssignment.jsp" >Add Assignment</a><h6></h6>
-      <span class="text-muted"><a style="margin-left: 120px; margin-bottom: 10px; font-size:15px; color: white;" href="${pageContext.request.contextPath}/Calendar.jsp">Calendar</a></span><h6></h6>
-       <a  style="margin-left: 120px; margin-bottom: 10px; color: white;font-size:15px;" href="${pageContext.request.contextPath}/Metrics.jsp" >Analytics</a><h6></h6>
-      <a  style="margin-left: 120px; margin-bottom: 10px; color: white;" href="${pageContext.request.contextPath}/SignOut" id="signOut" >Sign Out</a> 
+      <h4 class="text-white h4" style="margin-left: 130px; margin-bottom: 10px; color: white;"><%=username%></h4>
+       <a  style="margin-left: 130px; margin-bottom: 10px; color: white;font-size:18px;" href="${pageContext.request.contextPath}/AddAssignment.jsp" >Add Assignment</a><h6></h6>
+      <span class="text-muted"><a style="margin-left: 130px; margin-bottom: 10px; font-size:18px; color: white;" href="${pageContext.request.contextPath}/Calendar.jsp">Calendar</a></span><h6></h6>
+       <a  style="margin-left: 130px; margin-bottom: 10px; color: white;font-size:18px;" href="${pageContext.request.contextPath}/Metrics.jsp" >Analytics</a><h6></h6>
+      <a  style="margin-left: 130px; margin-bottom: 10px; color: white;font-size:18px;" href="${pageContext.request.contextPath}/SignOut" id="signOut" >Sign Out</a> 
       
     </div>
   </div>
@@ -190,7 +198,7 @@ h1 {
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation" style="margin-left: 130px;">
       <span class="navbar-toggler-icon"></span>
     </button>
-    <h3 style="margin-right: 150px; margin-bottom: 10px; color: white;">Welcome,<%=username%></h3>
+    <h3 style="margin-right: 120px; margin-bottom: 10px; color: white;">Welcome,<%=username%></h3>
   </nav>
 </div>
 	
@@ -203,8 +211,7 @@ h1 {
 		<br>
 		<br>
 		<br>
-		<br>
-		<h1>Please add an assignment from the top left tab!</h1>
+		<h3 style="margin-left: 150px; margin-bottom: 10px; color: black;">Please add an assignment from the top left tab :)</h3>
 	<%
 	}
 	%>
@@ -225,8 +232,10 @@ h1 {
 						
 					
 					
-					<div id="collapse<%entry.getKey();%>" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion"><div class="card-body" style="background-color: white; ">
-       					<table id="class"><tr>
+					<div id="collapse<%entry.getKey();%>" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+					<div class="card-body" style="background-color: white;  ">
+					
+       					<table id="class"> <tr>
        					<th> Assignment </th>
 						<th> Deadline </th>
 						<th> Submit Status </th>
@@ -259,26 +268,26 @@ h1 {
 							<td>
 									<button style="border-radius: 4px; font-size: 12px; "type="submit"
 										onclick="sendAssign('<%=entry.getKey()%>',
-								'<%=entry.getValue().get(i).getAssignmentName()%>')">Remove</button>
+								'<%=entry.getValue().get(i).getAssignmentName()%>')">Remove</button><br>
 							</td>
 					</tr>
-</table>
+
 					<%
 						}
 					%>
-</div></div></div></div>
+ </table></div></div></div> 
 				<br> <br>
 				<%
 					}
 				%>
-			</div>
+			 </div>
 			<!-- <form method="POST" action="AddAssignment.jsp">
 				<input class="button-small" type="submit" value="Add Assignment"
 					style="margin-left: 900px; border-radius: 8px; font-size: 12px; border-color: black;">
 			</form> -->
 		</div>
-	</div>
-
+	</div><!-- </div>
+</div></div> -->
  <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>

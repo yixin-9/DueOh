@@ -47,7 +47,7 @@ margin-left: 5.5%;
 			src="DueOh_logo3.png"
 			style="margin-top: 10px; margin-left: 75%; width: 180px; height: 180px;" />
 		</a>
-		<a class="nav-link active" style=" margin-top: 10px; margin-left: 350px; display: inline-block; color: grey; font-size: 20px;"href="${pageContext.request.contextPath}/profileGuest.jsp">Guest</a>
+		<a class="nav-link active" style=" margin-top: 10px; margin-left: 350px; display: inline-block; color: grey; font-size: 20px; "href="${pageContext.request.contextPath}/profileGuest.jsp">Guest</a>
 		<a class="nav-link active" style=" margin-top: 10px; margin-left: -500px; margin-right: 150px; display: inline-block; color: grey; font-size: 20px;"href="${pageContext.request.contextPath}/Register.jsp"">Register</a>
 	</nav>
 
