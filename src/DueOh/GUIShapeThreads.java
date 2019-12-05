@@ -24,7 +24,7 @@ public class GUIShapeThreads extends JFrame {
 	public static final long serialVersionUID = 1;
 	private Label timeLeft;
 	private long start;
-	public GUIShapeThreads(String assignment, long time) {
+	public GUIShapeThreads(String assignment, String classname, long time) {
 		super("GUI Shape Threads");
 		setSize(400, 200);
 		setLocation(850, 50);
@@ -36,6 +36,7 @@ public class GUIShapeThreads extends JFrame {
 		timeLeft.setTimeLeft(start);
 		timeLeft.setBounds(25, 50, 200, 100);
 		timeLeft.setHW(assignment);
+		timeLeft.setClassname(classname);
 		add(timeLeft);
 		
 		Thread t = new Thread(timeLeft);
@@ -48,13 +49,20 @@ public class GUIShapeThreads extends JFrame {
 		public static final long serialVersionUID = 1;
 		private long time;
 		private String hw;
+		private String classname;
+		
 		public void setTimeLeft(long input) {
-			time = input;
-		}
+			this.time = input;
+		}//constructor
 		
 		public void setHW(String name) {
 			this.hw = name;
-		}
+		}//setHW
+		
+		public void setClassname(String classname) {
+			this.classname = classname;
+		}//setClassname
+		
 		public void run() {
 			try {
 				while (true) {
@@ -86,21 +94,23 @@ public class GUIShapeThreads extends JFrame {
 					difference %= 60000;
 					int seconds = (int) (difference / 1000);
 					if (days <= 0) {
-						setText(" Hurry! " + this.hw + " is due in " + hours + " hours " + minutes + " minutes " + seconds + " seconds!");
+						setText(" Hurry! <" + this.classname + "> <" + this.hw + "> is due in " + hours + " hours " + minutes + " minutes " + seconds + " seconds!");
 						if (hours <= 0) {
-							setText(" Hurry! " + this.hw + " is due in " + minutes + " minutes " + seconds + " seconds!");
+							setText(" Hurry! <" + this.classname + "> <" + this.hw + "> is due in " + minutes + " minutes " + seconds + " seconds!");
 							if (minutes <= 0) {
-								setText(" Hurry! " + this.hw + " is due in " + seconds + " seconds!");
-							}
-						}
-					} else {
-						setText(" Hurry! " + this.hw + " is due in " + days + " days " + hours + " hours " + minutes + " minutes " + seconds + " seconds!");
-					}
+								setText(" Hurry! <" + this.classname + "> <" + this.hw + "> is due in " + seconds + " seconds!");
+							}//if
+						}//if
+					}//if
+					else {
+						setText(" Hurry! <" + this.classname + "> <" + this.hw + "> is due in " + days + " days " + hours + " hours " + minutes + " minutes " + seconds + " seconds!");
+					}//else
 					Thread.sleep(1000);
-				}
-			} catch (InterruptedException ie) {
+				}//while
+			}//try
+			catch (InterruptedException ie) {
 				System.out.println("ie: " + ie.getMessage());
-			}
-		}
-	}
-}
+			}//catch
+		}//run
+	}//Label
+}//GUIShapeThreads
